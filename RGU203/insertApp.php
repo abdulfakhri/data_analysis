@@ -8,8 +8,11 @@ $output = '';
 if(isset($_POST["import"])){
 
  $extension = end(explode(".", $_FILES["excel"]["name"])); // For getting Extension of selected file
+ 
  $allowed_extension = array("xls", "xlsx", "csv"); //allowed extension
+ 
  if(in_array($extension, $allowed_extension)) {
+
  //check selected file extension is present in allowed extension array
 
   $file = $_FILES["excel"]["tmp_name"]; // getting temporary source of excel file
@@ -21,120 +24,28 @@ if(isset($_POST["import"])){
 
   foreach ($objPHPExcel->getWorksheetIterator() as $worksheet){
    $highestRow = $worksheet->getHighestRow();
-   for($row=2; $row<=$highestRow; $row++){
+   for($row=3; $row<=$highestRow; $row++){
     $output .= "<tr>";
-    $sup = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(0,$row)->getValue());
-    $bill_no = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(1,$row)->getValue());
-    
-    $Company_Name = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(3,$row)->getValue());
-    $code = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(4,$row)->getValue());
-    $barcode = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(5,$row)->getValue());
-    $Product_Name = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(6, $row)->getValue());
-    $Packing = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(7, $row)->getValue());
-    $Batch_No = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(8, $row)->getValue());
-    $Expiry_date = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(9, $row)->getValue());
-    $Quantity = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(10, $row)->getValue());
-    $f_qty = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(11,$row)->getValue());
-    $halfp = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(12,$row)->getValue());
-    $frate = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(13,$row)->getValue());
-    $srate = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(14,$row)->getValue());
-    $Price = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(15, $row)->getValue());
-    $dis = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(16,$row)->getValue());
-    $excise = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(17,$row)->getValue());
-    $vat = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(18,$row)->getValue());
-    $adnlvat = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(19,$row)->getValue());
-    $amount = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(20,$row)->getValue());
-    $localcent = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(21,$row)->getValue());
-    $scm1 = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(22,$row)->getValue());
-    $scm2 = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(23,$row)->getValue());
-    $scmper = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(24,$row)->getValue());
-    $hsncode = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(25,$row)->getValue());
-    $cgst = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(26,$row)->getValue());
-    $sgst = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(27,$row)->getValue());
-    $igst = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(28,$row)->getValue());
-    $supplier = $_POST['dealer'];
-    
-    $loginId = $_SESSION['id'];
+    $Date = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(0,$row)->getValue());
+    $Price = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(1,$row)->getValue());
+    $Open = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(2,$row)->getValue());
+    $High = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(3,$row)->getValue());
+    $Low = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(4,$row)->getValue());
+    $Vol = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(5,$row)->getValue());
+    $Change = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(6,$row)->getValue());
+  
 
-    $Expiry_date;
-    
-    $Bd = $_POST['billD'];
-   
-   
-    
-     
-     
-     
- 
-
-    if($Expiry_date != null){
-    $EA = $_POST['ExpiryDateAlertMonth'];
-     list($ExMonth, $ExpiryY) = explode ("/", $Expiry_date, 2);
-     $ExMonth;
-     $ExpiryY;
-     $Day= '01';
-     $ExpiryCYear = $ExpiryY+2000;
-     $ExpiryCYear;
-     $Expiry_Sorted_Date = $ExpiryCYear."-".$ExMonth."-".$Day;
-     $Expiry_Sorted_Date;
-     $EA;
-     $Sdate=date_create($Expiry_Sorted_Date);
-     date_sub($Sdate,date_interval_create_from_date_string($EA));
-     $Expiry = date_format($Sdate,"Y-m-d");
-     $Expiry;
-
-
-   }
-
-    $Expiry_Sorted_Date;
-    $Expiry;
-    
-    $CDate=date("Y-m-d");
-
-   if($Expiry_Sorted_Date=='0000-00-00'){
-	$notes="Surgical Drug";
-     }else if( $Expiry_Sorted_Date<=$CDate){
-	$notes="!!!Expired";
-     }else if( $Expiry_Sorted_Date==$CDate){
-	$notes="!!Expiring Today";
-     }else if( $Expiry_Sorted_Date<=$CDate){
-	$notes="!!Expiring Soon";
-      }else if($CDate>=  $Expiry_Sorted_Date){
-	$notes="!!Expiring Soon";
-     }else if($CDate==   $Expiry_Sorted_Date ){
-	$notes="!!Expiring Soon";
-     }else if(  $Expiry_Sorted_Date >$CDate){
-	$notes="* Not Expired";
-    } else{
-	 $notes ="";
-    }                                  
-
-
-
-     $query = "INSERT INTO Minventory(
-     bill_name,supplier,bill_no,bill_date,company_name,code,barcode,product_name,packing,batch_no,expiry_date,
-     quantity,f_qty,halfp,frate,srate,price,dis,excise,vat,adnlvat,amount,localcent,scm1,scm2,scmper,hsncode,cgst,sgst,igst,expiry,login_id) 
-    VALUES('".$file2."','".$supplier."','".$bill_no."','".$Bd."','".$Company_Name."','".$code."','".$barcode."','".$Product_Name."','".$Packing."','".$Batch_No."',
-    '".$Expiry_Sorted_Date."','".$Quantity."','".$f_qty."','".$halfp."','".$frate."','".$srate."','".$Price."','".$dis."','".$excise."','".$vat."','".$adnlvat."','".$amount."','".$localcent."' ,'".$scm1."','".$scm2."',
-    '".$scmper."','".$hsncode."','".$cgst."','".$sgst."','".$igst."', '".$Expiry."','$loginId')"; 
+     $query = "INSERT INTO cba_data(Date_f,High_f,Price_f,Open_f,Low_f,Vol_f,Change_f)
+    VALUES('".$Date."','".$Price."','".$Open."','".$Bd."','". $High."','".$Low."','".$Vol."')"; 
     
     mysqli_query($connect, $query); 
-     $output .= '<td>'.$sup.'</td>';
-    
-    $output .= '<td>'.$file2.'</td>';
-    $output .= '<td>'.$Product_Name.'</td>';
-    $output .= '<td>'.$Bd.'</td>';
-    $output .= '<td>'.$Quantity.'</td>';
+    $output .= '<td>'.$Date.'</td>';
     $output .= '<td>'.$Price.'</td>';
-    $output .= '<td>'.$Packing.'</td>';
-    $output .= '<td>'.$Company_Name.'</td>';
-    $output .= '<td>'.$Batch_No.'</td>';
-    $output .= '<td>'.$Expiry_Sorted_Date.'</td>';
-    $output .= '<td>'.$Expiry.'</td>';
-     $output .= '<td>'.$notes.'</td>';
-  
-  
-    
+    $output .= '<td>'.$Open.'</td>';
+    $output .= '<td>'.$High.'</td>';
+    $output .= '<td>'.$Low.'</td>';
+    $output .= '<td>'.$Vol.'</td>';
+    $output .= '<td>'.$Change.'</td>';
     $output .= '</tr>';
    }
   } 
@@ -156,16 +67,7 @@ if(isset($_POST["import"])){
    <form method="post" enctype="multipart/form-data">
     <label>Select Purchase Bill Excel Format</label>
     <input type="file" name="excel" required/>
-    
    <br>
-   <label>Select Date For Products Expiry Alert</label>
-   <input type="text"  name="ExpiryDateAlertMonth" placeholder="like 1 day, 1 month, 3 months, 1 year etc..." required/>
-    <br />
- <label>Dealer Name</label>
-   <input type="text"  name="dealer" placeholder="Dealer Name..." required />
-   <label>Bill Date</label>
-   <input type="text"  name="billD"   placeholder="Please input Bill Date Manually" required />
-    <br />
     <input type="submit" name="import" class="btn btn-info" value="Register" required />
    </form>
    <br />
@@ -177,6 +79,6 @@ if(isset($_POST["import"])){
   </center>
 <div>
 
- <?PHP include 'footer.php'; ?>
+
 
 </div>
