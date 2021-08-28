@@ -35,9 +35,9 @@ if(isset($_POST["import"])){
 
    $highestRow = $worksheet->getHighestRow();
 
-   //for($row=1; $row<=$highestRow; $row++){
+   for($row=1; $row<=$highestRow; $row++){
 
-  while (!feof($file)) {
+  //while (!feof($file)) {
 
     $output .= "<tr>";
 
@@ -83,7 +83,7 @@ mysqli_close($connect);
   <center>
   <div class="container">
    <h3 align="center">Automatically Reform All the sheets in 1 Second</h3><br />
-   <form method="post" enctype="multipart/form-data">
+   <form method="post" action="" enctype="multipart/form-data">
     <label>Select CBA History Data</label>
     <input type="file" name="excel" required/>
    <br>
