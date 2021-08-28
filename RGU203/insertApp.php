@@ -13,7 +13,7 @@ if(isset($_POST["import"])){
  
  if(in_array($extension, $allowed_extension)) {
 
- //check selected file extension is present in allowed extension array
+ 
 
   $file = $_FILES["excel"]["tmp_name"]; // getting temporary source of excel file
   $file2=  $_FILES["name"];
@@ -23,9 +23,13 @@ if(isset($_POST["import"])){
   $output .= "<label class='text-success'><center><h2>Products Are Registered Successfully  in Inventory</h2></center></label><br /><table class='table table-bordered'>";
 
   foreach ($objPHPExcel->getWorksheetIterator() as $worksheet){
+
    $highestRow = $worksheet->getHighestRow();
+
    for($row=3; $row<=$highestRow; $row++){
+
     $output .= "<tr>";
+
     $Date = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(0,$row)->getValue());
     $Price = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(1,$row)->getValue());
     $Open = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(2,$row)->getValue());
@@ -35,10 +39,18 @@ if(isset($_POST["import"])){
     $Change = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(6,$row)->getValue());
   
 
-     $query = "INSERT INTO cba_data(Date_f,High_f,Price_f,Open_f,Low_f,Vol_f,Change_f)
-    VALUES('".$Date."','".$Price."','".$Open."','".$Bd."','". $High."','".$Low."','".$Vol."')"; 
+     $query = "INSERT INTO cba_data(Date_f,Price_f,High_f,Open_f,Low_f,Vol_f,Change_f)
+    VALUES('".$Date."','".$Price."','". $High."','".$Open."','".$Low.",'".$Vol."','".$Change."')"; 
     
-    mysqli_query($connect, $query); 
+    $res=mysqli_query($connect, $query); 
+
+    if ($res) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $query . "<br>" . $conn->error;
+}
+
+$conn->close();
     $output .= '<td>'.$Date.'</td>';
     $output .= '<td>'.$Price.'</td>';
     $output .= '<td>'.$Open.'</td>';
