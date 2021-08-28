@@ -2031,6 +2031,6 @@ ASXKNH VARCHAR(100),
 ASXOOK VARCHAR(100),
 ASX8EC VARCHAR(100),";
 
-$ncols= str_replace("varchar(2)","varchar(100)", $cols);
+$ncols= str_replace("VARCHAR(100)", "VARCHAR(2)", $cols);
 
 echo $ncols;
