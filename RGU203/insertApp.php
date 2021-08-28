@@ -148,7 +148,7 @@ if(isset($_POST["import"])){
 }
 ?>
 <div>
- <?PHP  include 'nav.php'; ?>
+ <?PHP // include 'nav.php'; ?>
 </div>
   <center>
   <div class="container">
