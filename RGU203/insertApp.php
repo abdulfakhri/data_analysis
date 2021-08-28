@@ -8,9 +8,10 @@ if (!$connect) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-
 $output = '';
+
 if(isset($_POST["import"])){
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  $extension = end(explode(".", $_FILES["excel"]["name"])); // For getting Extension of selected file
  
@@ -19,17 +20,22 @@ if(isset($_POST["import"])){
  if(in_array($extension, $allowed_extension)) {
 
   $file = $_FILES["excel"]["tmp_name"]; // getting temporary source of excel file
-  //$file2=  $_FILES["name"];
+ 
   include("PHPExcel/IOFactory.php"); // Add PHPExcel Library in this code
+ 
   $objPHPExcel = PHPExcel_IOFactory::load($file); // create object of PHPExcel library by using load() method and in load method define path of selected file
 
-  $output .= "<label class='text-success'><center><h2>Sheets Are Reformed Successfully</h2></center></label><br /><table class='table table-bordered'>";
+  $output .= "
+  <label class='text-success'>
+  <center><h2>Sheets Are Reformed Successfully</h2>
+  </center></label><br />
+  <table class='table table-bordered'>";
 
   foreach ($objPHPExcel->getWorksheetIterator() as $worksheet){
 
    $highestRow = $worksheet->getHighestRow();
 
-   for($row=3; $row<=$highestRow; $row++){
+   for($row=1; $row<=$highestRow; $row++){
 
     $output .= "<tr>";
 
