@@ -1,40 +1,3 @@
-<?php session_start(); ?>
-<?php
-if(!isset($_SESSION['valid'])) {
-	header('Location: /spages/login.php');
-}
-?>
-
-<?PHP
- $Pack = $_SESSION['package'];
- $CDate = Date("Y-m-d");
- 
- 
-  if( $Pack == $CDate ){
- 
- echo "Expired Today,"; 
-                    
- } else if( $Pack < $CDate ){
- 
- 
- $alert="Dear Client,Your Monthly Package Is Already Expired,Please Renew It To Keep Your Account Active";  
-                   
- } else if( $Pack > $CDate ){
- 
- 
- $alert="Dear Client Your Package Is Valid For One Month";
-                     
- }else if( $Pack <= $CDate ){
- 
- 
- $alert="Your Package Is Expiring Please Renew It Soon";                    
- }                        
-                    
- ?>
- 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -352,9 +315,5 @@ if(!isset($_SESSION['valid'])) {
         
         
        <div class="alert"> 
-       <?PHP
- 
-        echo $alert;
- 
-         ?>
+      
          </div>
