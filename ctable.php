@@ -5,9 +5,14 @@
    <body>
       <?php
          $dbhost = 'localhost';
-         $dbuser = 'u587940520_garyl';
-         $dbpass = '!@#123qweasdZXC';
-         $dbname = 'u587940520_garyl';
+         //$dbuser = 'u587940520_garyl';
+         //$dbpass = '!@#123qweasdZXC';
+         //$dbname = 'u587940520_garyl';
+
+         $dbuser = 'root';
+         $dbpass = 'root';
+         $dbname = 'garyl';
+
          include_once 'cols.php';
 
          $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
@@ -18,7 +23,9 @@
          }
          printf('Connected successfully.<br />');
           
-          $sql = "CREATE TABLE `mytctab`("+prepareD()+");";
+         // $sql = "CREATE TABLE `mytctab`(".prepareD().");";
+
+           $sql = "ALTER TABLE `cban` ADD"'.prepareD($col)).";
            
 
          if ($mysqli->query($sql)) {

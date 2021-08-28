@@ -1,5 +1,4 @@
 <?php
-function prepareD(){
 $cols="ASXCBA VARCHAR(100),
 ASXBHP VARCHAR(100),
 ASXCSL VARCHAR(100),
@@ -2030,6 +2029,9 @@ ASXREF VARCHAR(100),
 ASXKNH VARCHAR(100),
 ASXOOK VARCHAR(100),
 ASX8EC VARCHAR(100)";
+
+function prepareD($col){
+
 
 $ncols= str_replace("VARCHAR(100)", "VARCHAR(2)", $cols);
 
