@@ -2041,7 +2041,7 @@ $ncols= str_replace("VARCHAR(100)", "VARCHAR(2)", $cols);
 $ar=explode(",",$ncols);
 
 //for($i=0;$i<count($ar);$i++){
-for($i=0;$i<150;$i++){
+for($i=1;$i<150;$i++){
     echo $ar[$i];
 }
 
