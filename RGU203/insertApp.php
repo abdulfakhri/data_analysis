@@ -34,11 +34,11 @@ if(isset($_POST["import"])){
 
   foreach ($objPHPExcel->getWorksheetIterator() as $worksheet){
 
-   $highestRow = $worksheet->getLowestRow('Date');
+   //$highestRow = $worksheet->getLowestRow();
 
     //$highestRow = $worksheet->getLowestRow();
 
-   for($row=3; $row<=$highestRow; $row++){
+   for($row=3; $row<=2780; $row++){
 
   //while (!feof($file)) {
 
