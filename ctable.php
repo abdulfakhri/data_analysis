@@ -16,13 +16,17 @@
             exit();
          }
          printf('Connected successfully.<br />');
-   
-         $sql = "CREATE TABLE tutorials_tbl( ".
+         $fls=array(
+            "id INT NOT NULL AUTO_INCREMENT, ",
+            "DATE_and_Price VARCHAR(100) NOT NULL, ",
+            "ASXCBA VARCHAR(100) NOT NULL, ",
+            "ASXBHP VARCHAR(40) NOT NULL, ", 
+            "ASXCSL DATE, "
+         );
+         $sql = "CREATE TABLE tut_tbl( ".
             "id INT NOT NULL AUTO_INCREMENT, ".
-            "DATE_and_Price VARCHAR(100) NOT NULL, ".
-            "ASXCBA VARCHAR(100) NOT NULL, ".
-            "ASXBHP VARCHAR(40) NOT NULL, ".
-            "ASXCSL DATE, ".
+            $fls
+            .
             "PRIMARY KEY ( id )); ";
          if ($mysqli->query($sql)) {
             printf("Table tutorials_tbl created successfully.<br />");
