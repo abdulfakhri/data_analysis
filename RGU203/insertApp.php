@@ -41,9 +41,10 @@ if(isset($_POST["import"])){
     $Vol = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(5,$row)->getValue());
     $Change = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(6,$row)->getValue());
   
+ //VALUES("'.$Date.'","'.$Price.'","'.$High.'","'.$Open.'","'.$Low.'","'.$Vol.'","'.$Change.'")"; 
 
      $query = "INSERT INTO cba_data(Date_f,Price_f,High_f,Open_f,Low_f,Vol_f,Change_f)
-    VALUES("'.$Date.'","'.$Price.'","'.$High.'","'.$Open.'","'.$Low.'","'.$Vol.'","'.$Change.'")"; 
+     VALUES('$Date','$Price','$High','$Open','$Low','$Vol','$Change')"; 
     
     $res=mysqli_query($connect, $query); 
 
