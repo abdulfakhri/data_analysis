@@ -1,19 +1,22 @@
-
-
 <?php
-////////////////////////////////////////////////////////////////////////////////////////////
+//$connect = mysqli_connect("localhost","u587940520_garyl","!@#123qweasdZXC","u587940520_garyl" );
+
+// Create connection
 $connect = mysqli_connect("localhost","u587940520_garyl","!@#123qweasdZXC","u587940520_garyl" );
-////////////////////////////////////////////////////////////////////////////////////////////
+// Check connection
+if (!$connect) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+
 $output = '';
 if(isset($_POST["import"])){
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  $extension = end(explode(".", $_FILES["excel"]["name"])); // For getting Extension of selected file
  
  $allowed_extension = array("xls", "xlsx", "csv"); //allowed extension
  
  if(in_array($extension, $allowed_extension)) {
-
- 
 
   $file = $_FILES["excel"]["tmp_name"]; // getting temporary source of excel file
   $file2=  $_FILES["name"];
@@ -44,30 +47,26 @@ if(isset($_POST["import"])){
     
     $res=mysqli_query($connect, $query); 
 
-    if ($res) {
+if ($res) {
   echo "New record created successfully";
 } else {
-  echo "Error: " . $query . "<br>" . $conn->error;
+  echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
 
-$conn->close();
-    $output .= '<td>'.$Date.'</td>';
-    $output .= '<td>'.$Price.'</td>';
-    $output .= '<td>'.$Open.'</td>';
-    $output .= '<td>'.$High.'</td>';
-    $output .= '<td>'.$Low.'</td>';
-    $output .= '<td>'.$Vol.'</td>';
-    $output .= '<td>'.$Change.'</td>';
-    $output .= '</tr>';
+mysqli_close($connect);
+
+
    }
+
   } 
+
   $output .= '</table>';
 
- }
- else
- {
+ }else{
   $output = '<label class="text-danger">Not Registered, There Is Problem in Purchase Bill</label>'; //if non excel file then
  }
+
+ ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
 ?>
 <div>
