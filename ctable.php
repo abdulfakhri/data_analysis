@@ -8,7 +8,8 @@
          $dbuser = 'u587940520_garyl';
          $dbpass = '!@#123qweasdZXC';
          $dbname = 'u587940520_garyl';
-       
+         include_once 'cols.php';
+
          $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
          
          if($mysqli->connect_errno ) {
@@ -17,7 +18,7 @@
          }
          printf('Connected successfully.<br />');
       
-          $sql = "CREATE TABLE mytctab( 
+          $sql = "CREATE TABLE mytctab(".prepareD();.")";
            
 
          if ($mysqli->query($sql)) {

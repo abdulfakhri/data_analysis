@@ -1,4 +1,5 @@
 <?php
+function prepareD(){
 $cols="
 DATE_and_Price VARCHAR(100),
 ASXCBA VARCHAR(100),
@@ -2039,4 +2040,6 @@ $ar=explode(",",$ncols);
 
 for($i=0;$i<count($ar);$i++){
     echo $ar[$i]."\n";
+}
+
 }
