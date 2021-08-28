@@ -1,5 +1,6 @@
 <?php
-$cols="DATE_and_Price VARCHAR(100),
+$cols="
+DATE_and_Price VARCHAR(100),
 ASXCBA VARCHAR(100),
 ASXBHP VARCHAR(100),
 ASXCSL VARCHAR(100),
