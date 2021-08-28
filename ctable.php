@@ -25,9 +25,7 @@
          );
          $sql = "CREATE TABLE tut_tbl( ".
             "id INT NOT NULL AUTO_INCREMENT, ".
-            $fls
-            .
-            "PRIMARY KEY ( id )); ";
+            $fls.";
          if ($mysqli->query($sql)) {
             printf("Table tutorials_tbl created successfully.<br />");
          }
