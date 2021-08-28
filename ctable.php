@@ -23,9 +23,7 @@
             "ASXBHP VARCHAR(40) NOT NULL, ", 
             "ASXCSL DATE, "
          );
-         $sql = "CREATE TABLE tut_tbl( ".
-            "id INT NOT NULL AUTO_INCREMENT, ".
-            $fls.";
+         $sql = "CREATE TABLE tut_tbl($fls)";
          if ($mysqli->query($sql)) {
             printf("Table tutorials_tbl created successfully.<br />");
          }
