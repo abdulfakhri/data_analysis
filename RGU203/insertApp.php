@@ -76,7 +76,7 @@ mysqli_close($connect);
   <div class="container">
    <h3 align="center">Automatically Reform All the sheets in 1 Second</h3><br />
    <form method="post" enctype="multipart/form-data">
-    <label>Select Purchase Bill Excel Format</label>
+    <label>Select CBA History Data</label>
     <input type="file" name="excel" required/>
    <br>
     <input type="submit" name="import" class="btn btn-info" value="Reform" required />
