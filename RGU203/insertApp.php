@@ -19,7 +19,7 @@ if(isset($_POST["import"])){
  if(in_array($extension, $allowed_extension)) {
 
   $file = $_FILES["excel"]["tmp_name"]; // getting temporary source of excel file
-  $file2=  $_FILES["name"];
+  //$file2=  $_FILES["name"];
   include("PHPExcel/IOFactory.php"); // Add PHPExcel Library in this code
   $objPHPExcel = PHPExcel_IOFactory::load($file); // create object of PHPExcel library by using load() method and in load method define path of selected file
 
@@ -60,14 +60,17 @@ mysqli_close($connect);
    }
 
   } 
-
+ 
+    $output .= '</tr>';
+   }
+  } 
   $output .= '</table>';
 
- }else{
-  $output = '<label class="text-danger">Not Processed</label>'; //if non excel file then
  }
-
- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ else
+ {
+  $output = '<label class="text-danger">Not Registered, There Is Problem in Purchase Bill</label>'; //if non excel file then
+ }
 }
 ?>
 <div>
