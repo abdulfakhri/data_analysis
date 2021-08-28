@@ -16,13 +16,16 @@
             exit();
          }
          printf('Connected successfully.<br />');
-         $fls=array(
-            "DATE_and_Price VARCHAR(100) NOT NULL, ",
-            "ASXCBA VARCHAR(100) NOT NULL, ",
-            "ASXBHP VARCHAR(40) NOT NULL, ", 
-            "ASXCSL DATE "
-         );
-         $sql = "CREATE TABLE tut_tbl($fls)";
+      
+          $sql = "CREATE TABLE tb_tbl( 
+            id INT NOT NULL AUTO_INCREMENT, 
+            tutorial_title VARCHAR(100) NOT NULL, 
+            tutorial_author VARCHAR(40) NOT NULL, 
+            submission_date DATE, 
+            PRIMARY KEY ( id )); 
+            ";
+
+
          if ($mysqli->query($sql)) {
             printf("Table tutorials_tbl created successfully.<br />");
          }
