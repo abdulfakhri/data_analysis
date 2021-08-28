@@ -25,10 +25,11 @@ if(isset($_POST["import"])){
  
   $objPHPExcel = PHPExcel_IOFactory::load($file); // create object of PHPExcel library by using load() method and in load method define path of selected file
 
-  $output .= "
+ $output .= "
   <label class='text-success'>
   <center><h2>Sheets Are Reformed Successfully</h2>
-  </center></label><br />";
+  </center></label><br />
+  <table class='table table-bordered'>";
  
 
   foreach ($objPHPExcel->getWorksheetIterator() as $worksheet){
@@ -40,7 +41,7 @@ if(isset($_POST["import"])){
 
   //while (!feof($file)) {
 
-   // $output .= "<tr>";
+    $output .= "<tr>";
 
     $Date = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(0,$row)->getValue());
     $Price = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(1,$row)->getValue());
@@ -66,10 +67,10 @@ mysqli_close($connect);
 
  
  
-  //  $output .= '</tr>';
+   $output .= '</tr>';
    }
   } 
- // $output .= '</table>';
+  $output .= '</table>';
 
  }
  else
