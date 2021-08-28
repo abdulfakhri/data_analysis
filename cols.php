@@ -2035,11 +2035,14 @@ ASX8EC VARCHAR(100)";
 
 $ncols= str_replace("VARCHAR(100)", "VARCHAR(2)", $cols);
 
+//$cols =str_replace("VARCHAR(100)", "VARCHAR(2)", $cols);
+
 //echo $ncols;
 $ar=explode(",",$ncols);
 
-for($i=0;$i<count($ar);$i++){
-    echo $ar[$i]."\n";
+//for($i=0;$i<count($ar);$i++){
+for($i=0;$i<150;$i++){
+    echo $ar[$i].",";
 }
 
 }
