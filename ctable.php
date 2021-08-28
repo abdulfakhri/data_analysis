@@ -17,8 +17,8 @@
             exit();
          }
          printf('Connected successfully.<br />');
-      
-          $sql = "CREATE TABLE `mytctab`("prepareD()");";
+          
+          $sql = "CREATE TABLE `mytctab`("+prepareD()+");";
            
 
          if ($mysqli->query($sql)) {

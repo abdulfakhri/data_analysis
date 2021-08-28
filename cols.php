@@ -2042,7 +2042,7 @@ $ar=explode(",",$ncols);
 
 //for($i=0;$i<count($ar);$i++){
 for($i=0;$i<150;$i++){
-    echo $ar[$i].",";
+    echo $ar[$i];
 }
 
 }
