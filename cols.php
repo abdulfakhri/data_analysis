@@ -2030,8 +2030,13 @@ ASXCDH VARCHAR(100),
 ASXREF VARCHAR(100),
 ASXKNH VARCHAR(100),
 ASXOOK VARCHAR(100),
-ASX8EC VARCHAR(100),";
+ASX8EC VARCHAR(100)";
 
 $ncols= str_replace("VARCHAR(100)", "VARCHAR(2)", $cols);
 
-echo $ncols;
+//echo $ncols;
+$ar=explode(",",$ncols);
+
+for($i=0;$i<$ar.count();$i++){
+    echo $ar[$i]."\n";
+}
