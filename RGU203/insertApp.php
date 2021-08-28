@@ -33,8 +33,8 @@ if(isset($_POST["import"])){
 
   foreach ($objPHPExcel->getWorksheetIterator() as $worksheet){
 
-   $highestRow = $worksheet->getHighestRow();
-
+   //$highestRow = $worksheet->getHighestRow();
+    $highestRow = $worksheet->getLowestRow();
 
    for($row=3; $row<=$highestRow; $row++){
 
