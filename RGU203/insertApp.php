@@ -53,13 +53,9 @@ if ($res) {
 } else {
   echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
-
 mysqli_close($connect);
 
-
-   }
-
-  } 
+ 
  
     $output .= '</tr>';
    }
