@@ -23,7 +23,7 @@ if(isset($_POST["import"])){
   include("PHPExcel/IOFactory.php"); // Add PHPExcel Library in this code
   $objPHPExcel = PHPExcel_IOFactory::load($file); // create object of PHPExcel library by using load() method and in load method define path of selected file
 
-  $output .= "<label class='text-success'><center><h2>Products Are Registered Successfully  in Inventory</h2></center></label><br /><table class='table table-bordered'>";
+  $output .= "<label class='text-success'><center><h2>Sheets Are Reformed Successfully</h2></center></label><br /><table class='table table-bordered'>";
 
   foreach ($objPHPExcel->getWorksheetIterator() as $worksheet){
 
@@ -64,7 +64,7 @@ mysqli_close($connect);
   $output .= '</table>';
 
  }else{
-  $output = '<label class="text-danger">Not Registered, There Is Problem in Purchase Bill</label>'; //if non excel file then
+  $output = '<label class="text-danger">Not Processed</label>'; //if non excel file then
  }
 
  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,7 +75,7 @@ mysqli_close($connect);
 </div>
   <center>
   <div class="container">
-   <h3 align="center">Automatically Register All the Products in 1 Second</h3><br />
+   <h3 align="center">Automatically Reform All the sheets in 1 Second</h3><br />
    <form method="post" enctype="multipart/form-data">
     <label>Select Purchase Bill Excel Format</label>
     <input type="file" name="excel" required/>
