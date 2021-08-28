@@ -266,44 +266,12 @@
 
         <!-- Top container -->
         <div class="w3-bar w3-top w3-red w3-large" style="z-index:4">
-            <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+           
             <span class="w3-bar-item w3-right">RGU</span>
         </div>
         <br>
         <!-- Sidebar/menu -->
-        <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:246px;" id="mySidebar"><br>
-            <div class="w3-container w3-row">
-                <div class="w3-col s4">
-                    <img src="/images/logo2.png" class="w3-circle w3-margin-right" style="width:46px">
-                </div>
-                <div class="w3-col s8 w3-bar">
-                    <span><?PHP  echo $_SESSION['name'];?></span><br>
-                   
-                    
-                    <a href="http://www.irontin.com/#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-
-                    <a href="/mpages/profile.php" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
-                    
-                    
-                </div>
-            </div>
-            <hr>
-
-            <div class="w3-bar-block">
-                <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-                <a href="/mpages/home.php" class="w3-bar-item w3-button w3-padding-large w3-white">HOME</a>
-                <a href="/mpages/order.php" class="w3-bar-item w3-button w3-padding">Customers Orders</a>
-                <a href="/mpages/products.php" class="w3-bar-item w3-button w3-padding">Manual Purchase Entry</a>
-                <a href="/mpages/AutoDataEntry.php" class="w3-bar-item w3-button w3-padding">Auto Purchase Entry</a>  
-                <a href="/mpages/filter_inv.php" class="w3-bar-item w3-button w3-padding"> Purchase History</a>
-                <a href="/mpages/inventory.php" class="w3-bar-item w3-button w3-padding">Inventory</a>
-                <a href="/mpages/home.php" class="w3-bar-item w3-button w3-padding">Auto Sales Entry</a>
-                <a href="/mpages/purchase_list.php" class="w3-bar-item w3-button w3-padding">Purchase List</a>
-                <a href="/mpages/expiry.php" class="w3-bar-item w3-button w3-padding">Expiry</a>
-                <a href="http://pharma.regrowup.com/spages/login.php" class="w3-bar-item w3-button w3-padding">Sign Out</a>
-            </div>
-        </nav>
-
+        
 
         <!-- Overlay effect when opening sidebar on small screens -->
         <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
