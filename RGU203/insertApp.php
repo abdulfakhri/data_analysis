@@ -35,7 +35,9 @@ if(isset($_POST["import"])){
 
    $highestRow = $worksheet->getHighestRow();
 
-   for($row=1; $row<=$highestRow; $row++){
+   //for($row=1; $row<=$highestRow; $row++){
+
+  while (!feof($file)) {
 
     $output .= "<tr>";
 
