@@ -28,18 +28,19 @@ if(isset($_POST["import"])){
   $output .= "
   <label class='text-success'>
   <center><h2>Sheets Are Reformed Successfully</h2>
-  </center></label><br />
-  <table class='table table-bordered'>";
+  </center></label><br />";
+ 
 
   foreach ($objPHPExcel->getWorksheetIterator() as $worksheet){
 
    $highestRow = $worksheet->getHighestRow();
 
-   for($row=1; $row<=$highestRow; $row++){
+
+   for($row=3; $row<=$highestRow; $row++){
 
   //while (!feof($file)) {
 
-    $output .= "<tr>";
+   // $output .= "<tr>";
 
     $Date = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(0,$row)->getValue());
     $Price = mysqli_real_escape_string($connect, $worksheet->getCellByColumnAndRow(1,$row)->getValue());
@@ -65,10 +66,10 @@ mysqli_close($connect);
 
  
  
-    $output .= '</tr>';
+  //  $output .= '</tr>';
    }
   } 
-  $output .= '</table>';
+ // $output .= '</table>';
 
  }
  else

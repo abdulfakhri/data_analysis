@@ -7,6 +7,11 @@ if(!isset($_SESSION['valid'])) {
 ?>
 
    
+   $output .= "
+  <label class='text-success'>
+  <center><h2>Sheets Are Reformed Successfully</h2>
+  </center></label><br />
+  <table class='table table-bordered'>";
 
 <body>
        
