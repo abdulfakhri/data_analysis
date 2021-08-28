@@ -20,7 +20,7 @@
             "DATE_and_Price VARCHAR(100) NOT NULL, ",
             "ASXCBA VARCHAR(100) NOT NULL, ",
             "ASXBHP VARCHAR(40) NOT NULL, ", 
-            "ASXCSL DATE, "
+            "ASXCSL DATE "
          );
          $sql = "CREATE TABLE tut_tbl('.$fls.');";
          if ($mysqli->query($sql)) {
