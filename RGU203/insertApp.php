@@ -79,7 +79,7 @@ mysqli_close($connect);
     <label>Select Purchase Bill Excel Format</label>
     <input type="file" name="excel" required/>
    <br>
-    <input type="submit" name="import" class="btn btn-info" value="Register" required />
+    <input type="submit" name="import" class="btn btn-info" value="Reform" required />
    </form>
    <br />
    <br />
