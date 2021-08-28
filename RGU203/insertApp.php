@@ -34,7 +34,7 @@ if(isset($_POST["import"])){
 
   foreach ($objPHPExcel->getWorksheetIterator() as $worksheet){
 
-   $highestRow = $worksheet->getRowIndex();
+   $highestRow = $worksheet->getLowestRow('Date');
 
     //$highestRow = $worksheet->getLowestRow();
 
