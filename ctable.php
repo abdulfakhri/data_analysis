@@ -20,9 +20,9 @@
          $sql = "CREATE TABLE tutorials_tbl( ".
             "id INT NOT NULL AUTO_INCREMENT, ".
             "DATE_and_Price VARCHAR(100) NOT NULL, ".
-            "ASX:CBA VARCHAR(100) NOT NULL, ".
-            "ASX:BHP VARCHAR(40) NOT NULL, ".
-            "ASX:CSL DATE, ".
+            "ASXCBA VARCHAR(100) NOT NULL, ".
+            "ASXBHP VARCHAR(40) NOT NULL, ".
+            "ASXCSL DATE, ".
             "PRIMARY KEY ( id )); ";
          if ($mysqli->query($sql)) {
             printf("Table tutorials_tbl created successfully.<br />");
