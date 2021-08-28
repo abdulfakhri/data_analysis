@@ -70,7 +70,7 @@ mysqli_close($connect);
 }
 ?>
 <div>
- <?PHP  include 'nav.php'; ?>
+ <?PHP // include 'nav.php'; ?>
 </div>
   <center>
   <div class="container">
