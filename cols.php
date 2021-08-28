@@ -1,8 +1,6 @@
 <?php
 function prepareD(){
-$cols="
-DATE_and_Price VARCHAR(100),
-ASXCBA VARCHAR(100),
+$cols="ASXCBA VARCHAR(100),
 ASXBHP VARCHAR(100),
 ASXCSL VARCHAR(100),
 ASXWBC VARCHAR(100),
