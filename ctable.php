@@ -25,7 +25,7 @@
           
          // $sql = "CREATE TABLE `mytctab`(".prepareD().");";
 
-           $sql = "ALTER TABLE `cban` ADD"'.prepareD($col)).";
+           $sql = "ALTER TABLE `cban` ADD".prepareD($col);
            
 
          if ($mysqli->query($sql)) {

@@ -1,5 +1,41 @@
 <?php
-$cols="ASXCBA VARCHAR(100),
+
+function prepareD($cols){
+
+
+$ncols= str_replace("VARCHAR(100)", "VARCHAR(2)", $cols);
+
+//$cols =str_replace("VARCHAR(100)", "VARCHAR(2)", $cols);
+
+//echo $ncols;
+
+$ar=explode(",",$ncols);
+
+//for($i=0;$i<count($ar);$i++){
+/*
+for($i=0;$i<150;$i++){
+    $co=$ar[$i].",";
+    if($co!==null){
+        $co=$ar[$i].","."<br>";
+    }else{
+         $co=$ar[$i]."<br>";
+    }
+    echo $co;
+}
+*/
+for($i=0;$i<150;$i++){
+   
+   
+    echo $cols;
+
+    echo "CREATE TABLE tabname("
+}
+
+}
+
+$cols="
+DATE_and_Price VARCHAR(100),
+ASXCBA VARCHAR(100),
 ASXBHP VARCHAR(100),
 ASXCSL VARCHAR(100),
 ASXWBC VARCHAR(100),
@@ -2028,21 +2064,7 @@ ASXCDH VARCHAR(100),
 ASXREF VARCHAR(100),
 ASXKNH VARCHAR(100),
 ASXOOK VARCHAR(100),
-ASX8EC VARCHAR(100)";
+ASX8EC VARCHAR(100)
+);";
 
-function prepareD($col){
-
-
-$ncols= str_replace("VARCHAR(100)", "VARCHAR(2)", $cols);
-
-//$cols =str_replace("VARCHAR(100)", "VARCHAR(2)", $cols);
-
-//echo $ncols;
-$ar=explode(",",$ncols);
-
-//for($i=0;$i<count($ar);$i++){
-for($i=1;$i<150;$i++){
-    echo $ar[$i];
-}
-
-}
+//prepareD($cols);
