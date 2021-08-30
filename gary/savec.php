@@ -7,8 +7,7 @@ $nms=explode(',',$names);
 $n=count($nms);
 //echo $n;
 //print all file names
-
-for($i=1000;$i<=2000;$i++){
+for($i=2000;$i<$n;$i++){
 
   $companyCodes=str_replace(".csv","",$nms[$i]);
   
@@ -26,7 +25,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-  $sql = "INSERT INTO compcodes(CompanyCode) VALUES('$fnames[$j]')";
+  $sql = "INSERT INTO compcodes3000(CompanyCode) VALUES('$fnames[$j]')";
   if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
