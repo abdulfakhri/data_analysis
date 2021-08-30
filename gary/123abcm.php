@@ -1,16 +1,20 @@
 <?php
+//getting file names from filesnames.php
 include_once 'filenames.php';
 
-$nms=explode(',',$names );
-
+//names are stored in the string we need to covert strings to array
+$nms=explode(',',$names);
 $n=count($nms);
 
-for($i=0;$i<5;$i++){
-//for($i=0;$i<$n;$i++){
+
+//for($i=0;$i<5;$i++){
+
+for($i=0;$i<$n;$i++){
   
   //echo trim($nms[$i])."<br/>";
 
- $file = fopen((trim($nms[$i])),"r");
+$file = fopen((trim($nms[$i])),"r");
+
 while(! feof($file)){
   
   //print_r(fgetcsv($file));
@@ -35,16 +39,7 @@ while(! feof($file)){
   $close=$data[4];
   $volume=$data[5];
 
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "garyl";
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
+
   $sql = "INSERT INTO historydata (H_date,PriceOpen,PriceHigh,PriceLow,PriceClose,Volume)
   VALUES ('$time','$open','$high','$low','$close','$volume')";
   if (mysqli_query($conn, $sql)) {
@@ -55,15 +50,9 @@ if (!$conn) {
   }
   mysqli_close($conn);
 
-
+  
 }
 fclose($file);
-
 }
-
-
-
-
-
 
 ?>
