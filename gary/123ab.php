@@ -13,7 +13,6 @@ $servername = "localhost";
 $username = "root";
 $password = "root";
 $dbname = "garyl";
-
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
@@ -44,17 +43,17 @@ $time=$data[0];
   $close=$data[4];
   $volume=$data[5];
 for ($i=0; $i<$n; $i++){
-$sql = "INSERT INTO historydata (H_date,PriceOpen,PriceHigh,PriceLow,PriceClose,Volume,CompanyID)
-VALUES ('$time','$open','$high','$low','$close','$volume','$Company')";
-
-if (mysqli_query($conn, $sql)) {
+  $sql = "INSERT INTO historydata (H_date,PriceOpen,PriceHigh,PriceLow,PriceClose,Volume,CompanyID)
+  VALUES ('$time','$open','$high','$low','$close','$volume','$Company')";
+  if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-} else {
+  } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+  mysqli_close($conn);
 }
-}
-mysqli_close($conn);
+
   */
 //echo $time."   ".$open." ".$high." ".$low." ".$close;
 
