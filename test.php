@@ -1,16 +1,36 @@
 <?php
+
 $zip = zip_open("test.zip");
 
+
+
 if ($zip) {
-  while ($zip_entry = zip_read($zip)) {
-   
-   $zipfiles= zip_entry_name($zip_entry);
 
-   $zipfiles = str_replace("garyData/","",$zipfiles);
-   echo $zipfiles.",<br/>";
+  while ($zip_entry = zip_read($zip)) {
 
+    print_r(zip_entry_name($zip_entry)) . "<br>";
 
-  }
-  zip_close($zip);
+    // Open directory entry for reading
+    if (zip_entry_open($zip, $zip_entry)) {
+
+      echo "File Contents:<br>";
+      
+  // Read open directory entry
+
+      $contents = zip_entry_read($zip_entry);
+
+      echo "$contents<br>";
+
+      zip_entry_close($zip_entry);
+
+      }
+
+  echo "</p>";
+
+  }
+
+zip_close($zip);
 }
+
 ?>
+ 
