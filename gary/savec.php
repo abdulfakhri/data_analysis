@@ -16,7 +16,7 @@ for($i=0;$i<100;$i++){
   for($j=0;$j<count($fnames);$j++) {
 
 $servername = "localhost";
-$username = "u587940520_gary";
+$username = "u587940520_gray";
 $password = "!@#123qweasdZXC";
 $dbname = "u587940520_gary";
 // Create connection
