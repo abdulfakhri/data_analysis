@@ -16,9 +16,9 @@ for($i=2000;$i<$n;$i++){
   for($j=0;$j<count($fnames);$j++) {
 
 $servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "garyl";
+$username = "u587940520_gary";
+$password = "!@#123qweasdZXC";
+$dbname = "u587940520_gary";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
