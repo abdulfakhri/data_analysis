@@ -44,18 +44,18 @@ while($row = $result->fetch_assoc()) {
     echo "<th>".$row["filename"]."</th>";
 //echo "<tr><td>".$row["ID"]."</td><td>".$row["filename"]."</td><td>".$row["file_contents"]."</td></tr>";
 
-$data=explode(",",$row["file_contents"]);
+$rowData=explode(",",$row["file_contents"]);
 
-echo count($data);
+//echo count($data);
   
-/*
+
 echo "<td>".$rowData[0]."</td>";
 echo "<td>".$rowData[1]."</td>";
 echo "<td>".$rowData[2]."</td>";
 echo "<td>".$rowData[3]."</td>";
 echo "<td>".$rowData[4]."</td>";
 echo "<td>".$rowData[5]."</td>";
-
+/*
 echo "<td>".$row[]."</td>";
 echo "<td>".$row[1]."</td>";
 echo "<td>".$row[2]."</td>";
@@ -70,7 +70,8 @@ echo
 
 }
 echo "</table>";
-} else { echo "0 results"; }
+} else { 
+    echo "0 results"; }
 $conn->close();
 ?>
 </table>
