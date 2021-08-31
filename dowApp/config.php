@@ -1,9 +1,9 @@
 <?php
 function getdb(){
 $servername = "localhost";
-$username = "u587940520_gary";
+$username = "u587940520_gray";
 $password = "!@#123qweasdZXC";
-$db = "u587940520_gray";
+$db = "u587940520_gary";
 
 try {
    
