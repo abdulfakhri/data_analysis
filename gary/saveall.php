@@ -9,58 +9,7 @@ $n=count($nms);
 
 for($i=0;$i<5;$i++){
 
-//for($i=0;$i<$n;$i++){
-
-$companyCodes=str_replace(".csv","",$nms[$i]);
-$fnames=explode(",",$companyCodes);
-
-//for($j=0;$j<count($fnames);$j++) {
-
-//for($j=0;$j<5;$j++) {
-
-
-$file = fopen((trim($fnames[$j])),"r");
-
-while(! feof($file)){
-  
-  //print_r(fgetcsv($file));
-    //$companyCodes=str_replace(".csv","",$nms[$i]);
-    $data=fgetcsv($file);
-    $k=count($data);
-    
-    //print_r($fnames[$j])."<br/>";
-    print_r($data[0])."<br/>";
-    print_r($data[1])."<br/>";
-    print_r($data[2])."<br/>";
-    print_r($data[3])."<br/>";
-    print_r($data[4])."<br/>";
-    print_r($data[5])."<br/>";
-    
-
-/*
-
-  $time=$data[0];
-  $open=$data[1];
-  $high=$data[2];
-  $low=$data[3];
-  $Company=$nms[$i];
-  $close=$data[4];
-  $volume=$data[5];
-  $sql = "INSERT INTO historydata (H_date,PriceOpen,PriceHigh,PriceLow,PriceClose,Volume)
-  VALUES ('$time','$open','$high','$low','$close','$volume')";
-  if (mysqli_query($conn, $sql)) {
-  echo "New record created successfully";
-    //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  } else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  }
-  mysqli_close($conn);
-
-*/
-}
-fclose($file);
-
-//}
+echo "hi";
 
 
 }
