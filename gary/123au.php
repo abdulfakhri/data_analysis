@@ -1,13 +1,5 @@
 <?php
-mysql_connect('localhost','u587940520_gray','!@#123qweasdZXC'); // MAMP defaults
-mysql_select_db('u587940520_gary');
-$files = glob('*.csv');
-foreach($files as $file){
-    mysqli_query("LOAD DATA INFILE '".$file."' INTO TABLE files");
-}
 
-
-/*
 ini_set('display_errors',1);
 echo '### Begin Importation<br>';
 
@@ -24,7 +16,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$files = glob('C:\\xampp\\mysql\\data\\mev2\\*.csv');
+$files = glob('*.csv');
 
 foreach($files as $file){
 
@@ -36,7 +28,7 @@ foreach($files as $file){
 
     echo '<br>Create table <b>'.$n.'</b><hr>';
 
-    $sql = "CREATE TABLE IF NOT EXISTS `mydatabase`.`".$n."` 
+    $sql = "CREATE TABLE IF NOT EXISTS `u587940520_gary`.`".$n."` 
 (`email` varchar(60), `lastname` varchar(60), `firstname` varchar(60), 
 `country` varchar(19)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;";
 
@@ -60,5 +52,5 @@ foreach($files as $file){
 }
 
 echo '### Import finished !<br>';
-*/
+
 ?>
