@@ -22,9 +22,10 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
        // echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " " . $row["file_contents"]. "<br>";
 
-        list($Date,$Open,$High,$Low,$Close,$Volume) = explode(",",$row["file_contents"]);
+        $ar = explode("<br>",$row["file_contents"]);
+        echo $ar[0];
 
-        echo $Date[0];
+        
     }
 } else {
     echo "0 results";
