@@ -21,6 +21,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <body>
 <table>
 <tr>
+<th>No</th>
 <th>Date</th>
 <th>Close</th>
 <th>Volume</th>
@@ -40,11 +41,13 @@ $sql = "SELECT * FROM alldata LIMIT 100";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 // output data of each row
+$cr=1;
 while($row = $result->fetch_assoc()) {
 
 $rowData=explode(",",$row["file_contents"]);  
 
 echo "<tr>";
+echo "<td>".$cr++."</td>";
 echo "<td>".$rowData[5]."</td>";
 echo "<td>".$rowData[9]."</td>";
 echo "<td>".$rowData[10]."</td>";
