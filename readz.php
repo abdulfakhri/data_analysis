@@ -34,14 +34,14 @@ if (!$conn) {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   mysqli_close($conn);
-
+*/
 
  zip_entry_close($zip_entry);
 
 }
   echo "</p>";
 }
-*/
+
 zip_close($zip);
 
 }
