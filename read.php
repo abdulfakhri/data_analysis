@@ -43,7 +43,9 @@ if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
     $n=count($row);
     while($row) {
-       // echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " " . $row["file_contents"]. "<br>";
+         
+        echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " File Contents: " . $row["file_contents"]. "<br>";
+
         //$ar = explode("<br>",$row["file_contents"]);
         //echo $ar[0]."<br>";
         $companyCodes=str_replace("garyData/","",$row["filename"]);
@@ -51,7 +53,7 @@ if (mysqli_num_rows($result) > 0) {
         //echo trim($companyCodes)."<br>";
         $companyCodes=trim($companyCodes);  
 
-        echo "<tr><td>" . $row["ID"]. "</td><td>" . $row["filename"] . "</td><td>". $row["file_contents"]. "</td></tr>";
+       // echo "<tr><td>" . $row["ID"]. "</td><td>" . $row["filename"] . "</td><td>". $row["file_contents"]. "</td></tr>";
 
 
 
