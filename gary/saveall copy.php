@@ -16,7 +16,7 @@ $fnames=explode(",",$companyCodes);
 
 //for($j=0;$j<count($fnames);$j++) {
 
-//for($j=0;$j<5;$j++) {
+for($j=0;$j<5;$j++) {
 
 
 $file = fopen((trim($fnames[$j])),"r");
@@ -60,7 +60,7 @@ while(! feof($file)){
 }
 fclose($file);
 
-//}
+}
 
 
 }
