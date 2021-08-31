@@ -9,7 +9,7 @@ if ($zip) {
     if (zip_entry_open($zip, $zip_entry)) {
       echo "File Contents:<br>";
       // Read open directory entry
-      $contents = zip_entry_read($zip_entry,100000);
+      $contents = zip_entry_read($zip_entry,200000);
       
       echo $contents."<br>";
 /*      
