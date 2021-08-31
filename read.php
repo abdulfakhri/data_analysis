@@ -22,7 +22,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <table>
 <tr>
 <th>Id</th>
-<th>Filename</th>
+<th>File name</th>
 <th>Contents</th>
 </tr>
 <?php
@@ -30,32 +30,49 @@ $servername = "localhost";
 $username = "u587940520_gray";
 $password = "!@#123qweasdZXC";
 $dbname = "u587940520_gary";
-// Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT * FROM alldata LIMIT 3";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    $row = mysqli_fetch_assoc($result);
-    $n=count($row);
-    while($row) {
-        ?>
-      <tr>
-   <?php     
-        echo "<td>".$row["ID"]."</td>";
-        echo "<td>".$row["filename"]."</td>";
-        echo "<td>".$row["file_contents"]."</td>";
-    }
-} else {
-    echo "0 results";
+$sql = "SELECT * FROM alldata LIMIT 10";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+// output data of each row
+while($row = $result->fetch_assoc()) {
+
+    echo "<th>".$row["filename"]."</th>";
+//echo "<tr><td>".$row["ID"]."</td><td>".$row["filename"]."</td><td>".$row["file_contents"]."</td></tr>";
+
+$data=explode(",",$row["file_contents"]);
+
+echo count($data);
+  
+/*
+echo "<td>".$rowData[0]."</td>";
+echo "<td>".$rowData[1]."</td>";
+echo "<td>".$rowData[2]."</td>";
+echo "<td>".$rowData[3]."</td>";
+echo "<td>".$rowData[4]."</td>";
+echo "<td>".$rowData[5]."</td>";
+
+echo "<td>".$row[]."</td>";
+echo "<td>".$row[1]."</td>";
+echo "<td>".$row[2]."</td>";
+echo "<td>".$row[3]."</td>";
+echo "<td>".$row[4]."</td>";
+echo "<td>".$row[5]."</td>";
+echo 
+*/
+
+
+//}
+
 }
-mysqli_close($conn);
+echo "</table>";
+} else { echo "0 results"; }
+$conn->close();
 ?>
- </tr>
 </table>
 </body>
 </html>

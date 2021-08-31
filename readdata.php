@@ -58,7 +58,7 @@ $data=explode(",",$row["file_contents"]);
   VALUES ('$time','$open','$high','$low','$close','$volume','$Company')";
   if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
