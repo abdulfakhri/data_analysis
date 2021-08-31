@@ -20,7 +20,12 @@ tr:nth-child(even) {background-color: #f2f2f2}
 </head>
 <body>
 <table>
-
+<tr>
+<th>Date</th>
+<th>Close</th>
+<th>Volume</th>
+<th>CompanyCode</th>
+</tr>
 <?php
 $servername = "localhost";
 $username = "u587940520_gray";
@@ -36,29 +41,14 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 // output data of each row
 while($row = $result->fetch_assoc()) {
-    
-echo "<thead><th>".$row["filename"]."</th></thead>";
-echo "<tr>
-<th>Date</th>
-<th>Close</th>
-<th>Volume</th>
-</tr>";
 
-$rowData=explode(",",$row["file_contents"]);
+$rowData=explode(",",$row["file_contents"]);  
 
-//echo count($data);
-  
 echo "<tr>";
-/*
-echo "<td>".$rowData[0]."</td>";
-echo "<td>".$rowData[1]."</td>";
-echo "<td>".$rowData[2]."</td>";
-echo "<td>".$rowData[3]."</td>";
-echo "<td>".$rowData[4]."</td>";
-*/
 echo "<td>".$rowData[5]."</td>";
 echo "<td>".$rowData[9]."</td>";
 echo "<td>".$rowData[10]."</td>";
+echo "<td>".$row["filename"]."</td>";
 echo "</tr>";
 
 }
