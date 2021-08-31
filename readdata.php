@@ -41,8 +41,7 @@ if ($result->num_rows > 0) {
 // output data of each row
 while($row = $result->fetch_assoc()) {
 
-echo "<tr><td>" . $row["ID"]. "</td><td>" . $row["filename"] . "</td><td>"
-. $row["file_contents"]. "</td></tr>";
+echo "<tr><td>".$row["ID"]."</td><td>".$row["filename"]."</td><td>".$row["file_contents"]."</td></tr>";
 }
 echo "</table>";
 } else { echo "0 results"; }
