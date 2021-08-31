@@ -13,9 +13,6 @@ if(isset($_POST['submit'])){
     //  uploading files
     echo upload_files($tableName); 
 }
-
-
-
   function upload_files($tableName){
    
     $uploadTo = "uploads/"; 
