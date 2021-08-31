@@ -22,7 +22,7 @@ if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
     $n=count($row);
     
-    for($i = 0; $i < $n; $i++) {}
+    for($i = 0; $i < $n; $i++) {
     //while($row) {
         //echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " " . $row["file_contents"]. "<br>";
 
