@@ -21,7 +21,10 @@ if (mysqli_num_rows($result) > 0) {
     // output data of each row
     $row = mysqli_fetch_assoc($result);
     $n=count($row);
+
+    echo $n;
     
+    /*
     for($i = 0; $i < $n; $i++) {
     //while($row) {
         //echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " " . $row["file_contents"]. "<br>";
@@ -38,6 +41,8 @@ if (mysqli_num_rows($result) > 0) {
         echo $csv."<br>";
         
     }
+   */
+
 } else {
     echo "0 results";
 }
