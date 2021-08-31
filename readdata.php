@@ -35,7 +35,7 @@ if (mysqli_num_rows($result) > 0) {
         $ids=$row["ID"];
 
         $sqlu = "UPDATE alldata SET CompanyCode='$companyCodes' WHERE id='$ids'";
-
+       while($ids){
       if (mysqli_query($conn, $sqlu)) {
        echo "Record updated successfully";
        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -43,9 +43,7 @@ if (mysqli_num_rows($result) > 0) {
         //echo "Error updating record: " . mysqli_error($conn);
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
        } 
-
-      
-        
+       }
     }
    
 
