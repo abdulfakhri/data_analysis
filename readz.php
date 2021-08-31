@@ -1,6 +1,12 @@
 <?php
 $zip = zip_open("test.zip");
+zip_read($zip);
 
+// some code
+
+zip_close($zip);
+
+/*
 if ($zip) {
   while ($zip_entry = zip_read($zip)) {
     echo "<p>Name: " . zip_entry_name($zip_entry) . "<br>";
@@ -12,10 +18,7 @@ if ($zip) {
       $contents = zip_entry_read($zip_entry);
       
       //echo $contents."<br>";
-     
-
 fclose($file);
-
 $servername = "localhost";
 $username = "u587940520_gray";
 $password = "!@#123qweasdZXC";
@@ -45,4 +48,5 @@ if (!$conn) {
 zip_close($zip);
 
 }
+*/
 ?>
