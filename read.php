@@ -36,7 +36,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql = "SELECT * FROM alldata";
+$sql = "SELECT * FROM alldata LIMIT 3";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -45,20 +45,13 @@ if (mysqli_num_rows($result) > 0) {
     while($row) {
          
         echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " File Contents: " . $row["file_contents"]. "<br>";
-
         //$ar = explode("<br>",$row["file_contents"]);
         //echo $ar[0]."<br>";
         $companyCodes=str_replace("garyData/","",$row["filename"]);
         $companyCodes=str_replace(".csv","",$companyCodes);
         //echo trim($companyCodes)."<br>";
         $companyCodes=trim($companyCodes);  
-
        // echo "<tr><td>" . $row["ID"]. "</td><td>" . $row["filename"] . "</td><td>". $row["file_contents"]. "</td></tr>";
-
-
-
-
-
     }
 } else {
     echo "0 results";
