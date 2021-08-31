@@ -43,12 +43,38 @@ while($row = $result->fetch_assoc()) {
 
 //echo "<tr><td>".$row["ID"]."</td><td>".$row["filename"]."</td><td>".$row["file_contents"]."</td></tr>";
 
-$rowData=explode(",",$row["file_contents"]);
+$data=explode(",",$row["file_contents"]);
 
 
-//for($i=0; $i<count($rowData); $i++) {
-echo "<tr><td>".$row["filename"]."</td></tr>";
-echo "<tr><td>".$rowData[6]."</td></tr>";
+$servername = "localhost";
+$username = "u587940520_gray";
+$password = "!@#123qweasdZXC";
+$dbname = "u587940520_gary";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+ $time=$data[0];
+  $open=$data[1];
+  $high=$data[2];
+  $low=$data[3];
+  $Company=$row["filename"];
+  $close=$data[4];
+  $volume=$data[5];
+//for ($i=0; $i<$n; $i++){
+  $sql = "INSERT INTO historydata (H_date,PriceOpen,PriceHigh,PriceLow,PriceClose,Volume,CompanyID)
+  VALUES ('$time','$open','$high','$low','$close','$volume','$Company')";
+  if (mysqli_query($conn, $sql)) {
+  echo "New record created successfully";
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  } else {
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+  mysqli_close($conn);
+  
 /*
 echo "<td>".$rowData[0]."</td>";
 echo "<td>".$rowData[1]."</td>";
