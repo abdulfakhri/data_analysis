@@ -11,11 +11,11 @@ if ($zip) {
       // Read open directory entry
       $contents = zip_entry_read($zip_entry);
       
-      echo $contents."<br>";
+      //echo $contents."<br>";
      
 
 fclose($file);
-/*
+
 $servername = "localhost";
 $username = "u587940520_gray";
 $password = "!@#123qweasdZXC";
@@ -34,7 +34,7 @@ if (!$conn) {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   mysqli_close($conn);
-*/
+
 
  zip_entry_close($zip_entry);
 
