@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
 }
     // File upload configuration 
 
-    function store_files($storeFilesBasename, $tableName){
+function store_files($storeFilesBasename, $tableName){
       global $db;
       if(!empty($storeFilesBasename))
       {
