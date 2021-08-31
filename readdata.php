@@ -45,15 +45,16 @@ while($row = $result->fetch_assoc()) {
 
 $rowData=explode(",",$row["file_contents"]);
 
-echo $rowData[0];
-
+//echo $rowData[0];
+//for
 echo "<tr>";
 echo "<td>".$rowData[0]."</td>";
 echo "<td>".$rowData[1]."</td>";
+echo "<td>".$rowData[2]."</td>";
+echo "<td>".$rowData[3]."</td>";
+echo "<td>".$rowData[4]."</td>";
+echo "<td>".$rowData[5]."</td>";
 echo "</tr>";
-
-
-
 
 }
 echo "</table>";
