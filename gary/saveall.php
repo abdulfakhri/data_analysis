@@ -14,7 +14,9 @@ for($i=0;$i<$n;$i++){
 $companyCodes=str_replace(".csv","",$nms[$i]);
 $fnames=explode(",",$companyCodes);
 
-for($j=0;$j<count($fnames);$j++) {
+//for($j=0;$j<count($fnames);$j++) {
+
+for($j=0;$j<5;$j++) {
 
 
 $file = fopen((trim($fnames[$j])),"r");
