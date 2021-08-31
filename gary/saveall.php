@@ -11,10 +11,12 @@ for($i=0;$i<5;$i++){
 
 //echo $nms[$i];
 
-
+while($nms[$i] !=null){
 $file = fopen("$nms[$i]","r");
 print_r(fgetcsv($file));
 fclose($file);
+}
+
 
 
 }
