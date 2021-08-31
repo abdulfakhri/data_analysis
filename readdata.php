@@ -24,6 +24,8 @@ if (mysqli_num_rows($result) > 0) {
 
         //$ar = explode("<br>",$row["file_contents"]);
         //echo $ar[0]."<br>";
+        $companyCodes=str_replace("garyData/","",$row["filename"]);
+        echo $companyCodes."<br>";
 
         
     }
