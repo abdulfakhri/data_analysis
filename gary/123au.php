@@ -22,7 +22,7 @@ foreach($files as $file){
 
     //clean names if needed
     $filename = explode('\\',$file);
-    $filename2clean = str_replace('.csv','', $filename[5]);
+    $filename2clean = str_replace('.csv','', $filename);
 //because my file is under 5 folders on my PC
     $n = strtolower(str_replace('fileprefix_','', filename2clean));
 
