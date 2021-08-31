@@ -21,9 +21,9 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <body>
 <table>
 <tr>
-<th>Id</th>
-<th>File name</th>
-<th>Contents</th>
+<th>Date</th>
+<th>Close</th>
+<th>Volume</th>
 </tr>
 <?php
 $servername = "localhost";
@@ -57,8 +57,8 @@ echo "<td>".$rowData[3]."</td>";
 echo "<td>".$rowData[4]."</td>";
 */
 echo "<td>".$rowData[5]."</td>";
-echo "<td>".$rowData[6]."</td>";
-echo "<td>".$rowData[7]."</td>";
+echo "<td>".$rowData[9]."</td>";
+echo "<td>".$rowData[10]."</td>";
 echo "</tr>";
 /*
 echo "<td>".$row[]."</td>";
