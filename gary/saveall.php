@@ -9,7 +9,7 @@ $n=count($nms);
 
 for($i=0;$i<5;$i++){
 
-echo "hi";
+echo $nms[$i];
 
 
 }
