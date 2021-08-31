@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) > 0) {
 
    
     while($row) {
-        //echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " " . $row["file_contents"]. "<br>";
+        echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " " . $row["file_contents"]. "<br>";
 
         //$ar = explode("<br>",$row["file_contents"]);
         //echo $ar[0]."<br>";
@@ -32,9 +32,7 @@ if (mysqli_num_rows($result) > 0) {
         $companyCodes=str_replace(".csv","",$companyCodes);
         //echo trim($companyCodes)."<br>";
         $companyCodes=trim($companyCodes);
-        $ids=$row["ID"];
-
-        echo $ids."<br>";
+        
 
         
     }
