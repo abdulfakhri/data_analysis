@@ -25,7 +25,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-  $sql = "INSERT INTO companies(CompanyCode) VALUES('$fnames[$j]')";
+  $sql = "INSERT INTO CompanyCodes(CompanyCode) VALUES('$fnames[$j]')";
   if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
