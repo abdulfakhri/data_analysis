@@ -9,7 +9,7 @@ if ($zip) {
     if (zip_entry_open($zip, $zip_entry)) {
       echo "File Contents:<br>";
       // Read open directory entry
-      $contents = zip_entry_read($zip_entry,1000000);
+      $contents = zip_entry_read($zip_entry,100000);
       
       echo $contents."<br>";
   
@@ -24,7 +24,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-  $sql = "INSERT INTO adata(filename,file_contents) VALUES('$names',' $contents')";
+  $sql = "INSERT INTO alldata(filename,file_contents) VALUES('$names',' $contents')";
   if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
