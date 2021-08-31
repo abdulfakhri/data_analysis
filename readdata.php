@@ -23,7 +23,7 @@ if (mysqli_num_rows($result) > 0) {
        // echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " " . $row["file_contents"]. "<br>";
 
         $ar = explode("<br>",$row["file_contents"]);
-        echo $ar[0];
+        echo $ar[0]."<br>";
 
         
     }
