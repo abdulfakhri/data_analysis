@@ -11,9 +11,15 @@ if ($zip) {
       // Read open directory entry
       $contents = zip_entry_read($zip_entry);
       
-      echo $contents."<br>";
+     // echo $contents."<br>";
      
+      $file = fopen("$contents","r");
+     while(! feof($file)){
+      print_r(fgetcsv($file));
+     }
 
+fclose($file);
+/*
 $servername = "localhost";
 $username = "u587940520_gray";
 $password = "!@#123qweasdZXC";
@@ -36,11 +42,11 @@ if (!$conn) {
 
  zip_entry_close($zip_entry);
 
-
-
-    }
+}
   echo "</p>";
-  }
+}
+*/
 zip_close($zip);
+
 }
 ?>
