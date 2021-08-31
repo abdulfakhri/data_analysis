@@ -12,7 +12,7 @@ for($i=0;$i<5;$i++){
 //echo $nms[$i];
 
 
-$file = fopen($nms[$i],"r");
+$file = fopen("$nms[$i]","r");
 print_r(fgetcsv($file));
 fclose($file);
 
