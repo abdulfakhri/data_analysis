@@ -46,7 +46,7 @@ while($row = $result->fetch_assoc()) {
 
 $rowData=explode(",",$row["file_contents"]);  
 
-$date=str_replace("Volume ",","",$rowData[5]);
+$date=str_replace("Volume ","",$rowData[5]);
 
 echo "<tr>";
 echo "<td>".$cr++."</td>";
