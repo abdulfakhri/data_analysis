@@ -26,7 +26,11 @@ if (mysqli_num_rows($result) > 0) {
         //echo $ar[0]."<br>";
         $companyCodes=str_replace("garyData/","",$row["filename"]);
         $companyCodes=str_replace(".csv","",$companyCodes);
-        echo trim($companyCodes)."<br>";
+       // echo trim($companyCodes)."<br>";
+
+        $ar = str_replace("<br>",",",$row["file_contents"]);
+
+        echo $ar."<br>";
 
         
     }
