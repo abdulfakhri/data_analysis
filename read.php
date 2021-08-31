@@ -37,7 +37,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT * FROM alldata LIMIT 100";
+$sql = "SELECT * FROM alldata LIMIT 500";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 // output data of each row
