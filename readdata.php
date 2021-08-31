@@ -43,7 +43,7 @@ while($row = $result->fetch_assoc()) {
 
 //echo "<tr><td>".$row["ID"]."</td><td>".$row["filename"]."</td><td>".$row["file_contents"]."</td></tr>";
 
-$rowData=explode(",",$row["data"]);
+$rowData=explode(",",$row["file_contents"]);
 
 echo $rowData[0];
 
