@@ -48,13 +48,14 @@ $rowData=explode(",",$row["file_contents"]);
 
 //echo count($data);
   
-
+echo "<tr>";
 echo "<td>".$rowData[0]."</td>";
 echo "<td>".$rowData[1]."</td>";
 echo "<td>".$rowData[2]."</td>";
 echo "<td>".$rowData[3]."</td>";
 echo "<td>".$rowData[4]."</td>";
 echo "<td>".$rowData[5]."</td>";
+echo "</tr>";
 /*
 echo "<td>".$row[]."</td>";
 echo "<td>".$row[1]."</td>";
