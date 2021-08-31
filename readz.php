@@ -1,12 +1,6 @@
 <?php
 $zip = zip_open("test.zip");
-zip_read($zip);
 
-// some code
-
-zip_close($zip);
-
-/*
 if ($zip) {
   while ($zip_entry = zip_read($zip)) {
     echo "<p>Name: " . zip_entry_name($zip_entry) . "<br>";
@@ -15,9 +9,10 @@ if ($zip) {
     if (zip_entry_open($zip, $zip_entry)) {
       echo "File Contents:<br>";
       // Read open directory entry
-      $contents = zip_entry_read($zip_entry);
+      $contents = zip_entry_read($zip_entry,2020);
       
-      //echo $contents."<br>";
+      echo $contents."<br>";
+/*      
 fclose($file);
 $servername = "localhost";
 $username = "u587940520_gray";
@@ -37,7 +32,7 @@ if (!$conn) {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   mysqli_close($conn);
-
+*/
 
  zip_entry_close($zip_entry);
 
@@ -48,5 +43,5 @@ if (!$conn) {
 zip_close($zip);
 
 }
-*/
+
 ?>
