@@ -21,7 +21,8 @@ include_once('config.php');
 					echo "<script type=\"text/javascript\">
 							alert(\"Invalid File:Please Upload CSV File.\");
 							window.location = \"index.php\"
-						  </script>";		
+						  </script>";	
+						  	
 				}
 				else {
 					  echo "<script type=\"text/javascript\">
