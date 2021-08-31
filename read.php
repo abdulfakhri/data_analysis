@@ -22,8 +22,8 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <table>
 <tr>
 <th>Id</th>
-<th>Username</th>
-<th>Password</th>
+<th>Filename</th>
+<th>Contents</th>
 </tr>
 <?php
 $servername = "localhost";
