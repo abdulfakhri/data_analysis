@@ -20,7 +20,11 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-        echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " " . $row["file_contents"]. "<br>";
+       // echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " " . $row["file_contents"]. "<br>";
+
+        list($Date,$Open,$High,$Low,$Close,$Volume) = explode(",",$row["file_contents"]);
+
+        echo $Date[0];
     }
 } else {
     echo "0 results";
