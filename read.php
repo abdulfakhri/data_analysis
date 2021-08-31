@@ -43,30 +43,19 @@ if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
     $n=count($row);
     while($row) {
-         
-        echo "<tr><td>" . $row["ID"]. "</td><td>"  . $row["filename"]. "</td><td>". $row["file_contents"]. "</td></tr>";
-        //$ar = explode("<br>",$row["file_contents"]);
-        //echo $ar[0]."<br>";
-        $companyCodes=str_replace("garyData/","",$row["filename"]);
-        $companyCodes=str_replace(".csv","",$companyCodes);
-        //echo trim($companyCodes)."<br>";
-        $companyCodes=trim($companyCodes);  
-       // echo "<tr><td>" . $row["ID"]. "</td><td>" . $row["filename"] . "</td><td>". $row["file_contents"]. "</td></tr>";
-
-
-
-
-
-
-
-
-
+        ?>
+      <tr>
+   <?php     
+        echo "<td>".$row["ID"]."</td>";
+        echo "<td>".$row["filename"]."</td>";
+        echo "<td>".$row["file_contents"]."</td>";
     }
 } else {
     echo "0 results";
 }
 mysqli_close($conn);
 ?>
+ </tr>
 </table>
 </body>
 </html>
