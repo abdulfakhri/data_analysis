@@ -47,7 +47,7 @@ $rowData=explode(",",$row["file_contents"]);
 
 
 //for($i=0; $i<count($rowData); $i++) {
-echo "<tr>".$row["filename"]."</tr>";
+echo "<tr><td>".$row["filename"]."</td></tr>";
 echo "<tr><td>".$rowData[6]."</td></tr>";
 /*
 echo "<td>".$rowData[0]."</td>";
