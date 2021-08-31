@@ -31,27 +31,7 @@ if (mysqli_num_rows($result) > 0) {
        // $ar = str_replace("<br>",",",$row["file_contents"]);
         $csv = $row["file_contents"];
 
-        //echo $ar."<br>";
-
-
-
-        function read($csv){
-    $file = fopen($csv, 'r');
-    while (!feof($file) ) {
-        $line[] = fgetcsv($file, 1024);
-    }
-    fclose($file);
-    return $line;
-}
-
-// Define the path to CSV file
-//$csv = 'myfile.csv';
-
-$csv = read($csv);
-echo '<pre>';
-print_r($csv);
-echo '</pre>';
-
+        echo $csv."<br>";
         
     }
 } else {
