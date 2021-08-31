@@ -22,26 +22,32 @@ if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
     $n=count($row);
 
-    echo $n;
-    
-    /*
-    for($i = 0; $i < $n; $i++) {
-    //while($row) {
+   
+    while($row) {
         //echo "id: " . $row["ID"]. " - Name: " . $row["filename"]. " " . $row["file_contents"]. "<br>";
 
         //$ar = explode("<br>",$row["file_contents"]);
         //echo $ar[0]."<br>";
         $companyCodes=str_replace("garyData/","",$row["filename"]);
         $companyCodes=str_replace(".csv","",$companyCodes);
-       // echo trim($companyCodes)."<br>";
+        //echo trim($companyCodes)."<br>";
+        $companyCodes=trim($companyCodes);
+        $ids=$row["ID"];
 
-       // $ar = str_replace("<br>",",",$row["file_contents"]);
-        $csv = $row["file_contents"];
+        $sqlu = "UPDATE alldata SET CompanyCode='$companyCodes' WHERE id='$ids'";
 
-        echo $csv."<br>";
+      if (mysqli_query($conn, $sqlu)) {
+       echo "Record updated successfully";
+       echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      } else {
+        //echo "Error updating record: " . mysqli_error($conn);
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+       } 
+
+      
         
     }
-   */
+   
 
 } else {
     echo "0 results";
