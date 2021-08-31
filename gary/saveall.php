@@ -7,9 +7,9 @@ $nms=explode(',',$names);
 $n=count($nms);
 
 
-//for($i=0;$i<5;$i++){
+for($i=0;$i<5;$i++){
 
-for($i=0;$i<$n;$i++){
+//for($i=0;$i<$n;$i++){
 
 $companyCodes=str_replace(".csv","",$nms[$i]);
 $fnames=explode(",",$companyCodes);
