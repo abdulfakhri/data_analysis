@@ -14,7 +14,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM MyGuests";
+$sql = "SELECT * FROM alldata";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
