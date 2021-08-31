@@ -45,7 +45,7 @@ while($row = $result->fetch_assoc()) {
 
 $rowData=explode(",",$row["file_contents"]);
 
-echo $rowData[6];
+echo $rowData[6]."<br/>";
 //for($i=0; $i<count($rowData); $i++) {
 
 echo "<tr>";
