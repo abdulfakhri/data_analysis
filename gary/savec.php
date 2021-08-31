@@ -8,7 +8,7 @@ $n=count($nms);
 //echo $n;
 //print all file names
 //for($i=2000;$i<$n;$i++){
-for($i=0;$i<100;$i++){
+for($i=0;$i<$n;$i++){
   $companyCodes=str_replace(".csv","",$nms[$i]);
   
   $fnames=explode(",",$companyCodes);
