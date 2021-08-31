@@ -20,11 +20,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 </head>
 <body>
 <table>
-<tr>
-<th>Date</th>
-<th>Close</th>
-<th>Volume</th>
-</tr>
+
 <?php
 $servername = "localhost";
 $username = "u587940520_gray";
@@ -40,9 +36,13 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 // output data of each row
 while($row = $result->fetch_assoc()) {
-
-    echo "<th>".$row["filename"]."</th>";
-//echo "<tr><td>".$row["ID"]."</td><td>".$row["filename"]."</td><td>".$row["file_contents"]."</td></tr>";
+    
+echo "<thead><th>".$row["filename"]."</th></thead>";
+echo "<tr>
+<th>Date</th>
+<th>Close</th>
+<th>Volume</th>
+</tr>";
 
 $rowData=explode(",",$row["file_contents"]);
 
@@ -60,21 +60,9 @@ echo "<td>".$rowData[5]."</td>";
 echo "<td>".$rowData[9]."</td>";
 echo "<td>".$rowData[10]."</td>";
 echo "</tr>";
-/*
-echo "<td>".$row[]."</td>";
-echo "<td>".$row[1]."</td>";
-echo "<td>".$row[2]."</td>";
-echo "<td>".$row[3]."</td>";
-echo "<td>".$row[4]."</td>";
-echo "<td>".$row[5]."</td>";
-echo 
-*/
-
-
-//}
 
 }
-echo "</table>";
+
 } else { 
     echo "0 results"; }
 $conn->close();
