@@ -46,9 +46,11 @@ while($row = $result->fetch_assoc()) {
 
 $rowData=explode(",",$row["file_contents"]);  
 
+$date=str_replace("Volume ",","",$rowData[5]");
+
 echo "<tr>";
 echo "<td>".$cr++."</td>";
-echo "<td>".$rowData[5]."</td>";
+echo "<td>".$date."</td>";
 echo "<td>".$rowData[9]."</td>";
 echo "<td>".$rowData[10]."</td>";
 echo "<td>".$row["filename"]."</td>";
