@@ -35,7 +35,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT * FROM alldata LIMIT 3";
+$sql = "SELECT * FROM alldata LIMIT 10";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 // output data of each row
@@ -46,17 +46,6 @@ while($row = $result->fetch_assoc()) {
 $data=explode(",",$row["file_contents"]);
 
 
-$servername = "localhost";
-$username = "u587940520_gray";
-$password = "!@#123qweasdZXC";
-$dbname = "u587940520_gary";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
  $time=$data[0];
   $open=$data[1];
   $high=$data[2];
@@ -75,25 +64,8 @@ if (!$conn) {
   }
   mysqli_close($conn);
   
-/*
-echo "<td>".$rowData[0]."</td>";
-echo "<td>".$rowData[1]."</td>";
-echo "<td>".$rowData[2]."</td>";
-echo "<td>".$rowData[3]."</td>";
-echo "<td>".$rowData[4]."</td>";
-echo "<td>".$rowData[5]."</td>";
 
-echo "<td>".$row[]."</td>";
-echo "<td>".$row[1]."</td>";
-echo "<td>".$row[2]."</td>";
-echo "<td>".$row[3]."</td>";
-echo "<td>".$row[4]."</td>";
-echo "<td>".$row[5]."</td>";
-echo 
-*/
-
-
-//}
+}
 
 }
 echo "</table>";
