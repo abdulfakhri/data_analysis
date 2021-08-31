@@ -45,10 +45,10 @@ while($row = $result->fetch_assoc()) {
 
 $rowData=explode(",",$row["file_contents"]);
 
-echo $rowData[6]."<br/>";
+
 //for($i=0; $i<count($rowData); $i++) {
 
-echo "<tr>";
+echo "<tr>".$rowData[6]."</tr>";
 /*
 echo "<td>".$rowData[0]."</td>";
 echo "<td>".$rowData[1]."</td>";
@@ -63,8 +63,9 @@ echo "<td>".$row[2]."</td>";
 echo "<td>".$row[3]."</td>";
 echo "<td>".$row[4]."</td>";
 echo "<td>".$row[5]."</td>";
+echo 
 */
-echo "</tr>";
+
 
 //}
 
