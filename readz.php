@@ -11,12 +11,8 @@ if ($zip) {
       // Read open directory entry
       $contents = zip_entry_read($zip_entry);
       
-     // echo $contents."<br>";
+      echo $contents."<br>";
      
-      $file = fopen($contents,"r");
-     while(! feof($file)){
-      print_r(fgetcsv($file));
-     }
 
 fclose($file);
 /*
