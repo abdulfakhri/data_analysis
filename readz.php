@@ -13,7 +13,7 @@ if ($zip) {
       
      // echo $contents."<br>";
      
-      $file = fopen("$contents","r");
+      $file = fopen($contents,"r");
      while(! feof($file)){
       print_r(fgetcsv($file));
      }
