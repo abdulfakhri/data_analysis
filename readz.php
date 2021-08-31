@@ -26,7 +26,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-  $sql = "INSERT INTO all_data(filename,file_contents) VALUES('$names',' $contents')";
+  $sql = "INSERT INTO allData(filename,file_contents) VALUES('$names',' $contents')";
   if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
