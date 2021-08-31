@@ -65,7 +65,7 @@ if (!$conn) {
   $close=$data[4];
   $volume=$data[5];
 //for ($i=0; $i<$n; $i++){
-  $sql = "INSERT INTO historydata (H_date,PriceOpen,PriceHigh,PriceLow,PriceClose,Volume,CompanyID)
+  $sql = "INSERT INTO historydata (H_date,PriceOpen,PriceHigh,PriceLow,PriceClose,Volume,CompanyCode)
   VALUES ('$time','$open','$high','$low','$close','$volume','$Company')";
   if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
