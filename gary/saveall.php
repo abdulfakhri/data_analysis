@@ -26,7 +26,7 @@ while(! feof($file)){
     $data=fgetcsv($file);
     $k=count($data);
     
-    print_r($fnames[$j])."<br/>";
+    //print_r($fnames[$j])."<br/>";
     print_r($data[0])."<br/>";
     print_r($data[1])."<br/>";
     print_r($data[2])."<br/>";
