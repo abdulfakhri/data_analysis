@@ -64,7 +64,7 @@ $d=strtotime( "2000-01-01" . " +1 days");
 
 echo "<tr>";
 echo "<td>".$cr++."</td>";
-echo "<td>".$d."</td>";
+echo "<td>".$rowData[5]."</td>";
 echo "<td>".$rowData[9]."</td>";
 echo "<td>".$volume."</td>";
 echo "<td>".$code."</td>";
