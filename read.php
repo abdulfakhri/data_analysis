@@ -55,7 +55,7 @@ $volume=str_replace("$vol"," ",$rowData[10]);
 
 echo "<tr>";
 echo "<td>".$cr++."</td>";
-echo "<td>".$rowData[5]."</td>";
+echo "<td>".$rowData[1]."</td>";
 echo "<td>".$rowData[9]."</td>";
 echo "<td>".$volume."</td>";
 echo "<td>".$rowData[0]."</td>";
