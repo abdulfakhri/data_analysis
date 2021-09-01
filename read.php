@@ -61,7 +61,7 @@ $date=date_date_set($date,2000,01,01);
 //$dt= date_format($date,"Y-m-d");
 $d=date('Y-m-d',strtotime( "2000-01-01" . " +1 days"));
 foreach($rowData as $row){
-    echo $row[0];
+    echo $row[0]." ".$row[1]." ".$row[2]."<br> ";
 }
 /*
 echo "<tr>";
