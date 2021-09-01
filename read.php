@@ -26,6 +26,8 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <th>Close</th>
 <th>Volume</th>
 <th>CompanyCode</th>
+<th>Share Issues</th>
+<th>Market Capt</th>
 </tr>
 <?php
 $servername = "localhost";
@@ -58,6 +60,8 @@ echo "<td>".$date."</td>";
 echo "<td>".$rowData[9]."</td>";
 echo "<td>".$volume."</td>";
 echo "<td>".$code."</td>";
+echo "<td>"."N/A"."</td>";
+echo "<td>"."N/A"."</td>";
 echo "</tr>";
 
 }
