@@ -51,11 +51,12 @@ $code=str_replace(".csv","",$code);
 $vol=strchr($rowData[10]," ");
 $volume=str_replace("$vol"," ",$rowData[10]);
 
-
+$dateCr=date_create("$rowData[1]");
+$date=date_format($dateCr,"Y-m-d");
 
 echo "<tr>";
 echo "<td>".$cr++."</td>";
-echo "<td>".$rowData[1]."</td>";
+echo "<td>".$date."</td>";
 echo "<td>".$rowData[9]."</td>";
 echo "<td>".$volume."</td>";
 echo "<td>".$rowData[0]."</td>";
