@@ -12,11 +12,8 @@ if ($zip) {
       echo "File Contents:<br>";
       // Read open directory entry
       $contents = zip_entry_read($zip_entry,100000);
-      
       echo $contents."<br>";
-  
 fclose($file);
-
   $sql = "INSERT INTO alldata(filename,file_contents) VALUES('$names',' $contents')";
   if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
@@ -25,16 +22,13 @@ fclose($file);
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   mysqli_close($conn);
-
-
  zip_entry_close($zip_entry);
-
 }
   echo "</p>";
 }
-
 zip_close($zip);
-
 }
+
+
 
 ?>
