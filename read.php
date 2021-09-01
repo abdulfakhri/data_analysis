@@ -59,7 +59,7 @@ $volume=str_replace("$vol"," ",$rowData[10]);
 $date=date_create();
 $date=date_date_set($date,2000,01,01);
 //$dt= date_format($date,"Y-m-d");
-$d=strtotime( "2000-01-01" . " +1 days"));
+$d=strtotime( "2000-01-01" . " +1 days");
 
 
 echo "<tr>";
