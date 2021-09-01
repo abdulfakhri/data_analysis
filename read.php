@@ -60,7 +60,10 @@ $date=date_create();
 $date=date_date_set($date,2000,01,01);
 //$dt= date_format($date,"Y-m-d");
 $d=date('Y-m-d',strtotime( "2000-01-01" . " +1 days"));
-
+foreach($rowData as $row){
+    echo $row[0];
+}
+/*
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$d."</td>";
@@ -70,7 +73,7 @@ echo "<td>".$code."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
-
+*/
 }
 
 } else { 
