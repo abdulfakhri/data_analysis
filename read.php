@@ -57,9 +57,9 @@ $vol=strchr($rowData[10]," ");
 $volume=str_replace("$vol"," ",$rowData[10]);
 
 $date=date_create();
-date_date_set($date,2000,01,01);
+$date=date_date_set($date,2000,01,01);
 $dt= date_format($date,"Y-m-d");
- $d=date('Y-m-d',strtotime( $dt . " +1 days"));
+$d=date('Y-m-d',strtotime( $dt . " +1 days"));
 
 echo "<tr>";
 echo "<td>".$cr++."</td>";
