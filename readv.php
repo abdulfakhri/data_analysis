@@ -30,15 +30,8 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <th>Market Capt</th>
 </tr>
 <?php
-$servername = "localhost";
-$username = "u587940520_gray";
-$password = "!@#123qweasdZXC";
-$dbname = "u587940520_gary";
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
-}
+include ('database.php');
+
 $sql = "SELECT * FROM alldata";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
