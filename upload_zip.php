@@ -1,6 +1,4 @@
 <?php
-include ('database.php');
-
 $zip = zip_open("newd.zip");
 
 if ($zip) {
@@ -12,8 +10,20 @@ if ($zip) {
       echo "File Contents:<br>";
       // Read open directory entry
       $contents = zip_entry_read($zip_entry,100000);
+      
       echo $contents."<br>";
+  
 fclose($file);
+$servername = "localhost";
+$username = "u587940520_gray";
+$password = "!@#123qweasdZXC";
+$dbname = "u587940520_gary";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
   $sql = "INSERT INTO alldata(filename,file_contents) VALUES('$names',' $contents')";
   if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
@@ -22,13 +32,16 @@ fclose($file);
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
   mysqli_close($conn);
+
+
  zip_entry_close($zip_entry);
+
 }
   echo "</p>";
 }
+
 zip_close($zip);
+
 }
-
-
 
 ?>
