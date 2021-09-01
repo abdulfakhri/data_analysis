@@ -36,7 +36,7 @@ zip_close($zipfile);
 
 }
 
-function uploadZip($zipfile){
+//function uploadZip($zipfile){
 
   if ($zipfile) {
   while ($zip_entry = zip_read($zipfile)) {
@@ -64,11 +64,11 @@ fclose($zipfile);
 zip_close($zipfile);
 }
 
-}
+//}
 //echo "--------------------------------------------------------------------------------------------------------";
 
 //readContents($zip);
 
 //readName($zip);
 
-uploadZip($zip);
+//uploadZip($zip);
