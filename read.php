@@ -56,7 +56,10 @@ $code=str_replace(".csv","",$code);
 $vol=strchr($rowData[10]," ");
 $volume=str_replace("$vol"," ",$rowData[10]);
 
- $d=date('Y-m-d', strtotime( $d . " +1 days"));
+$date=date_create();
+date_date_set($date,2000,01,01);
+$dt= date_format($date,"Y-m-d");
+$d=strtotime( $dt . " +1 days");
 
 echo "<tr>";
 echo "<td>".$cr++."</td>";
