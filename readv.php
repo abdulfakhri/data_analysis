@@ -55,8 +55,15 @@ $code=str_replace(".csv","",$code);
 $vol=strchr($rowData[10]," ");
 $volume=str_replace("$vol"," ",$rowData[10]);
 
- 
+ $str_CSV = $row['file_contents'];
 
+ $ro = str_getcsv($str_CSV, "\n");  
+ $length = count($row;   
+ for($i=0;$i<$length;$i++) {  
+  $val = str_getcsv($ro[$i], ",");  
+  print_r($val);
+
+/*
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
@@ -66,6 +73,7 @@ echo "<td>".$code."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
+*/
 
 }
 
