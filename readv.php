@@ -58,7 +58,7 @@ $volume=str_replace("$vol"," ",$rowData[10]);
  $str_CSV = $row['file_contents'];
 
  $ro = str_getcsv($str_CSV, "\n");  
- $length = count($row;   
+ $length = count($ro);   
  for($i=0;$i<$length;$i++) {  
   $val = str_getcsv($ro[$i], ",");  
   print_r($val);
