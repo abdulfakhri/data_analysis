@@ -32,7 +32,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <?php
 include ('database.php');
 
-$sql = "SELECT * FROM alldata";
+$sql = "SELECT * FROM gdata";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 // output data of each row
