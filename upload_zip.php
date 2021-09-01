@@ -8,11 +8,11 @@ if ($zip) {
     $names=zip_entry_name($zip_entry);
     // Open directory entry for reading
     if (zip_entry_open($zip, $zip_entry)) {
-      echo "File Contents:<br>";
+      //echo "File Contents:<br>";
       // Read open directory entry
-     // $contents = zip_entry_read($zip_entry,100000);
+     $contents = zip_entry_read($zip_entry,100000);
       
-      echo $contents."<br>";
+  //echo $contents."<br>";
 
        
 $servername = "localhost";
