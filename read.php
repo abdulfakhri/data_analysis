@@ -30,10 +30,12 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <th>Market Capt</th>
 </tr>
 <?php
-include ('database.php');
+include_once 'database.php';
 
-$sql = "SELECT * FROM alldata";
+$sql = "SELECT * FROM gdata";
+
 $result = $conn->query($sql);
+
 if ($result->num_rows > 0) {
 // output data of each row
 $cr=1;
@@ -49,10 +51,6 @@ $code=str_replace(".csv","",$code);
 $vol=strchr($rowData[10]," ");
 $volume=str_replace("$vol"," ",$rowData[10]);
 
-$date=date_create();
-$date=date_date_set($date,2000,01,01);
-//$dt= date_format($date,"Y-m-d");
-$d=strtotime( "2000-01-01" . " +1 days");
 
 
 echo "<tr>";
@@ -68,7 +66,8 @@ echo "</tr>";
 }
 
 } else { 
-    echo "0 results"; }
+    echo "0 results"; 
+}
 $conn->close();
 ?>
 </table>
