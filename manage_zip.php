@@ -42,7 +42,7 @@ if ($zipfile) {
     echo "<p>Name: " . zip_entry_name($zip_entry) . "<br>";
     $names=zip_entry_name($zip_entry);
     // Open directory entry for reading
-    if (zip_entry_open($zip, $zip_entry)) {
+    if (zip_entry_open($zipfile, $zip_entry)) {
       echo "File Contents:<br>";
       // Read open directory entry
       $contents = zip_entry_read($zip_entry,100000);
