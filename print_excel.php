@@ -19,14 +19,14 @@ if(isset($_POST["export"])){
 
  }else{
 
-  $file_name = 'Order Data.csv';
+  $file_name = 'ASX Data.csv';
   header("Content-Description: File Transfer");
   header("Content-Disposition: attachment; filename=$file_name");
   header("Content-Type: application/csv;");
 
   $file = fopen('php://output', 'w');
 
-  $header = array("No","Date" ,"Close", "Volume", "Company Code","Share Issues","Market Cap");
+  $header = array("No ","        Date        " ,"   Close   ", " Volume ", " Company Code "," Share Issues "," Market Cap ");
 
   fputcsv($file, $header);
 
