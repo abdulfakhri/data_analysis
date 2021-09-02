@@ -1,6 +1,7 @@
 <?php
 //include_once 'database.php';
 $connect = new PDO("mysql:host=localhost;dbname=u587940520_gary", "u587940520_gray", "!@#123qweasdZXC");
+
 $start_date_error = '';
 $end_date_error = '';
 
@@ -31,14 +32,12 @@ if(isset($_POST["export"])){
   SELECT * FROM history_data 
   WHERE H_date >= '".$_POST["start_date"]."' 
   AND H_date  <= '".$_POST["end_date"]."' 
-  ORDER BY H_date  DESC
-  ";
+  ORDER BY H_date DESC ";
   $statement = $connect->prepare($query);
   $statement->execute();
   $result = $statement->fetchAll();
   $i=1;
-  foreach($result as $row)
-  {
+  foreach($result as $row){
    $data = array();
    $data[] = $i++;
    $data[] = $row["H_date"];
@@ -56,7 +55,6 @@ if(isset($_POST["export"])){
 
 $query = "
 SELECT * FROM history_data 
-ORDER BY H_date DESC;
 ";
 
 $statement = $connect->prepare($query);
