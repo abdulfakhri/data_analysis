@@ -44,7 +44,13 @@ while($row = $result->fetch_assoc()) {
 
 $rowDatas=explode("\n",$row["file_contents"]);  
 
-echo $rowDatas[0]."<br/>";
+$cn=count($rowDatas);
+
+for($i=0;$i<$cn;$i++) {
+echo $rowDatas[$i]."<br/>";
+}
+
+
 
 /*
 foreach($rowDatas as $ros) {
