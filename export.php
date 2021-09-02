@@ -65,7 +65,7 @@ $result = $statement->fetchAll();
 
 <html>
  <head>
-  <title>Daterange Mysql Data Export to CSV in PHP</title>
+  <title>Export ASX Companies History</title>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
@@ -109,12 +109,11 @@ $result = $statement->fetchAll();
      </thead>
      <tbody>
       <?php
-      $i=1;
-      foreach($result as $row)
-      {
+      $ki=1;
+      foreach($result as $row){
        echo '
        <tr>
-        <td>'."No".'</td>
+        <td>'.$ki++.'</td>
         <td>'.$row["H_date"].'</td>
         <td>'.$row["PriceClose"].'</td>
         <td>'.$row["Volume"].'</td>
