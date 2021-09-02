@@ -65,7 +65,7 @@ $result = $statement->fetchAll();
 
 <html>
  <head>
-  <title>Daterange Mysql Data Export to CSV in PHP</title>
+  <title>ASX</title>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
@@ -73,7 +73,7 @@ $result = $statement->fetchAll();
  </head>
  <body>
   <div class="container box">
-   <h1 align="center">Daterange Mysql Data Export to CSV in PHP</h1>
+   <h1 align="center">Export Data Demo</h1>
    <br />
    <div class="table-responsive">
     <br />
