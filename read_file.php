@@ -58,7 +58,7 @@ echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
 echo "<td>".round($rowData[5],2)."</td>";
-echo "<td>".round($rowData[2],2)."</td>";
+echo "<td>".round($rowData[6])."</td>";
 echo "<td>".$rowData[0]."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
