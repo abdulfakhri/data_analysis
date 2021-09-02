@@ -25,6 +25,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <th>Date</th>
 <th>Close</th>
 <th>Volume</th>
+<th>CompanyCode</th>
 <th>Share Issues</th>
 <th>Market Capt</th>
 </tr>
