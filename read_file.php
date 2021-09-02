@@ -67,9 +67,9 @@ echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
 */
-echo "<tr>".$CompCode."</tr>";
-echo "<tr>";
-echo "<tr>".$cr++."</td>";
+echo "<tr>".$CompCode;
+
+echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
 echo "<td>".$priceClose."</td>";
 echo "<td>".$volume."</td>";
