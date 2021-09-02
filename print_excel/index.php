@@ -114,7 +114,7 @@ $result = $statement->fetchAll();
         <td>'.$row["order_id"].'</td>
         <td>'.$row["order_customer_name"].'</td>
         <td>'.$row["order_item"].'</td>
-        <td>$'.$row["order_value"].'</td>
+        <td>'.$row["order_value"].'</td>
         <td>'.$row["order_date"].'</td>
        </tr>
        ';
