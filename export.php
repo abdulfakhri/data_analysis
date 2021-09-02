@@ -1,7 +1,6 @@
-
 <?php
-include_once 'database.php';
-
+//include_once 'database.php';
+$connect = new PDO("mysql:host=localhost;dbname=u587940520_gary", "u587940520_gray", "!@#123qweasdZXC");
 $start_date_error = '';
 $end_date_error = '';
 
@@ -57,7 +56,7 @@ if(isset($_POST["export"])){
 
 $query = "
 SELECT * FROM history_data 
-ORDER BY order_date DESC;
+ORDER BY H_date DESC;
 ";
 
 $statement = $connect->prepare($query);
@@ -112,23 +111,12 @@ $result = $statement->fetchAll();
      </thead>
      <tbody>
       <?php
-   $data[] = $i++;
-   $data[] = $row["H_date"];
-   $data[] = $row["PriceClose"];
-   $data[] = $row["Volume"];
-   $data[] = $row["CompanyCode"];
-   $data[] = "N/A";
-   $data[] = "N/A";
-
-
-
-
       $i=1;
       foreach($result as $row)
       {
        echo '
        <tr>
-        <td>'.$i++.'</td>
+        <td>'.$i++;.'</td>
         <td>'.$row["H_date"].'</td>
         <td>'.$row["PriceClose"].'</td>
         <td>'.$row["Volume"].'</td>
