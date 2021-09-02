@@ -44,10 +44,10 @@ while($row = $result->fetch_assoc()) {
 
 $rowData=explode(",",$row["file_contents"]);  
 
-$date=str_replace("Volume","",$rowData[1]);
 $code=str_replace("newd/","",$row["filename"]);
 $code=str_replace(".csv","",$code);
 //$volume=explode(" ",$rowData[10]);
+
 $vol=strchr($rowData[10]," ");
 $volume=str_replace("$vol"," ",$rowData[10]);
 
@@ -57,9 +57,9 @@ $date=date_format($dateCr,"Y-m-d");
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
-echo "<td>".$rowData[9]."</td>";
-echo "<td>".$volume."</td>";
-echo "<td>".$rowData[0]."</td>";
+echo "<td>".$rowData[3]."</td>";
+echo "<td>".$rowData[4]."</td>";
+echo "<td>".$rowData[5]."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
