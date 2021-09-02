@@ -69,7 +69,7 @@ echo "<td>"."N/A"."</td>";
 echo "</tr>";
 */
 
-$sql = "INSERT INTO historydata(Hdate,PriceClose,Volume,CompanyCode) VALUES('$date','$priceClose','$volume','$CompCode')";
+$sql = "INSERT INTO historydata2(hdate,price_close,volume,company_code) VALUES('$date','$priceClose','$volume','$CompCode')";
 if(mysqli_query($conn, $sql)) {
   echo "New record created successfully";
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
