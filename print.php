@@ -1,5 +1,5 @@
+
 <?php
-//include_once 'database.php';
 $connect = new PDO("mysql:host=localhost;dbname=u587940520_gary", "u587940520_gray", "!@#123qweasdZXC");
 
 $start_date_error = '';
@@ -24,26 +24,27 @@ if(isset($_POST["export"])){
 
   $file = fopen('php://output', 'w');
 
-  $header = array("Date", "Close", "Volume","Company Code","Share Issues","Market Cap");
+  $header = array("Order ID", "Customer Name", "Item Name", "Order Value", "Order Date");
 
   fputcsv($file, $header);
 
   $query = "
-  SELECT * FROM historydata 
-  WHERE Hdate >= '".$_POST["start_date"]."' 
-  AND Hdate  <= '".$_POST["end_date"]."'";
+  SELECT * FROM tbl_order 
+  WHERE order_date >= '".$_POST["start_date"]."' 
+  AND order_date <= '".$_POST["end_date"]."' 
+  ORDER BY order_date DESC
+  ";
   $statement = $connect->prepare($query);
   $statement->execute();
   $result = $statement->fetchAll();
-  $i=1;
-  foreach($result as $row){
+  foreach($result as $row)
+  {
    $data = array();
-   $data[] = $row["Hdate"];
-   $data[] = $row["PriceClose"];
-   $data[] = $row["Volume"];
-   $data[] = $row["CompanyCode"];
-   $data[] = "N/A";
-   $data[] = "N/A";
+   $data[] = $row["order_id"];
+   $data[] = $row["order_customer_name"];
+   $data[] = $row["order_item"];
+   $data[] = $row["order_value"];
+   $data[] = $row["order_date"];
    fputcsv($file, $data);
   }
   fclose($file);
@@ -51,7 +52,10 @@ if(isset($_POST["export"])){
  }
 }
 
-$query = "SELECT * FROM historydata ";
+$query = "
+SELECT * FROM tbl_order 
+ORDER BY order_date DESC;
+";
 
 $statement = $connect->prepare($query);
 $statement->execute();
@@ -61,7 +65,7 @@ $result = $statement->fetchAll();
 
 <html>
  <head>
-  <title>Export ASX Companies History</title>
+  <title>Daterange Mysql Data Export to CSV in PHP</title>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
@@ -69,7 +73,7 @@ $result = $statement->fetchAll();
  </head>
  <body>
   <div class="container box">
-   <h1 align="center">Export ASX Companies History</h1>
+   <h1 align="center">Daterange Mysql Data Export to CSV in PHP</h1>
    <br />
    <div class="table-responsive">
     <br />
@@ -105,17 +109,15 @@ $result = $statement->fetchAll();
      </thead>
      <tbody>
       <?php
-      $ki=1;
-      foreach($result as $row){
+      foreach($result as $row)
+      {
        echo '
        <tr>
-        <td>'."N/A".'</td>
-        <td>'.$row["Hdate"].'</td>
-        <td>'.$row["PriceClose"].'</td>
-        <td>'.$row["Volume"].'</td>
-        <td>'.$row["CompanyCode"].'</td>
-        <td>'."N/A".'</td>
-        <td>'."N/A".'</td>
+        <td>'.$row["order_id"].'</td>
+        <td>'.$row["order_customer_name"].'</td>
+        <td>'.$row["order_item"].'</td>
+        <td>'.$row["order_value"].'</td>
+        <td>'.$row["order_date"].'</td>
        </tr>
        ';
       }
