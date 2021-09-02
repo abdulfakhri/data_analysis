@@ -47,22 +47,16 @@ $rowDatas=explode("\n",$row["file_contents"]);
 $cn=count($rowDatas);
 
 for($i=0;$i<$cn;$i++) {
-echo $rowDatas[$i]."<br/>";
-}
-
-
-
-/*
-foreach($rowDatas as $ros) {
-$sql = "INSERT INTO cmps(file_contents) VALUES('$rowDatas')";
+//echo $rowDatas[$i]."<br/>";
+$sql = "INSERT INTO cmps(file_contents) VALUES('$rowDatas[$i]')";
 if(mysqli_query($conn, $sql)) {
   echo "New record created successfully";
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
+
 }
-*/
 
 
 }
