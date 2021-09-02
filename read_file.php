@@ -32,7 +32,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <?php
 include_once 'database.php';
 
-$sql = "SELECT * FROM companydata";
+$sql = "SELECT * FROM companydata LIMIT 20";
 
 $result = $conn->query($sql);
 
@@ -54,11 +54,15 @@ $volume=str_replace("$vol"," ",$rowData[10]);
 $dateCr=date_create("$rowData[1]");
 $date=date_format($dateCr,"d/m/y");
 
+$volume = number_format($rowData[6]);
+
+
+
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
 echo "<td>".round($rowData[5],2)."</td>";
-echo "<td>".round($rowData[6])."</td>";
+echo "<td>".$volume."</td>";
 echo "<td>".$rowData[0]."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
