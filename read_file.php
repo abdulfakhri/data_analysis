@@ -59,7 +59,7 @@ echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
 echo "<td>".$rowData[3]."</td>";
 echo "<td>".$rowData[4]."</td>";
-echo "<td>".$rowData[5]."</td>";
+echo "<td>".$rowData[0]."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
