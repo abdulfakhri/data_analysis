@@ -57,7 +57,7 @@ if(isset($_POST["export"])){
  }
 }
 
-$query = "SELECT * FROM historydata ";
+$query = "SELECT * FROM historydata LIMIT 100 ";
 
 $statement = $connect->prepare($query);
 $statement->execute();
