@@ -32,7 +32,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <?php
 include_once 'database.php';
 
-$sql = "SELECT * FROM companydata";
+$sql = "SELECT * FROM companydata LIMIT 5";
 
 $result = $conn->query($sql);
 
