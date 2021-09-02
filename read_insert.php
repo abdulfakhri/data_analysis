@@ -47,7 +47,7 @@ $rowDatas=explode(",",$row["file_contents"]);
 
 foreach($rowDatas as $ros) {
 
-echo $ros;
+echo $ros . "<br>";
 
 /*
 $dateCr=date_create("$ros[1]");
