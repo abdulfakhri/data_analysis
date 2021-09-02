@@ -44,7 +44,7 @@ while($row = $result->fetch_assoc()) {
 
 $rowData=explode(",",$row["file_contents"]);  
 
-$date=str_replace("Volume","",$rowData[1);
+$date=str_replace("Volume","",$rowData[1]);
 $code=str_replace("newd/","",$row["filename"]);
 $code=str_replace(".csv","",$code);
 //$volume=explode(" ",$rowData[10]);
