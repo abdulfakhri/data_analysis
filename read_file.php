@@ -52,7 +52,7 @@ $vol=strchr($rowData[10]," ");
 $volume=str_replace("$vol"," ",$rowData[10]);
 
 $dateCr=date_create("$rowData[1]");
-$date=date_format($dateCr,"Y-m-d");
+$date=date_format($dateCr,"d/m/y");
 
 echo "<tr>";
 echo "<td>".$cr++."</td>";
