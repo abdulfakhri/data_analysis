@@ -42,15 +42,14 @@ $cr=1;
 $day=1;
 while($row = $result->fetch_assoc()) {
 
-$rowDatas=explode(",",$row["file_contents"]);  
+$rowData=explode(",",$row["file_contents"]);  
 
-foreach($rowDatas as $rowd) {
-
-$code=str_replace("newd/","",$rowd["filename"]);
-
+$date=str_replace("Volume","",$rowData[5]);
+$code=str_replace("newd/","",$row["filename"]);
 $code=str_replace(".csv","",$code);
-
-
+//$volume=explode(" ",$rowData[10]);
+$vol=strchr($rowData[10]," ");
+$volume=str_replace("$vol"," ",$rowData[10]);
 
 $dateCr=date_create("$rowData[1]");
 $date=date_format($dateCr,"Y-m-d");
@@ -58,14 +57,12 @@ $date=date_format($dateCr,"Y-m-d");
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
-echo "<td>".$rowd[9]."</td>";
-echo "<td>".$rowd[10]."</td>";
-echo "<td>".$rowd[0]."</td>";
+echo "<td>".$rowData[9]."</td>";
+echo "<td>".$volume."</td>";
+echo "<td>".$rowData[0]."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
-
-}
 
 }
 
