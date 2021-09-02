@@ -49,12 +49,12 @@ $rowDatas=explode(",",$row["file_contents"]);
 
 //echo $ros;
 
-$sql = "INSERT INTO comps(file_contents) VALUES('$rowDatas')";
+$sql = "INSERT INTO cmps(file_contents) VALUES('$rowDatas')";
 
 if(mysqli_query($conn, $sql)) {
   echo "New record created successfully";
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-  
+
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
