@@ -114,7 +114,7 @@ $result = $statement->fetchAll();
       {
        echo '
        <tr>
-        <td>'.$i++;.'</td>
+        <td>'.$i++.'</td>
         <td>'.$row["H_date"].'</td>
         <td>'.$row["PriceClose"].'</td>
         <td>'.$row["Volume"].'</td>
