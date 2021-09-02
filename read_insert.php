@@ -47,7 +47,15 @@ $rowDatas=explode(",",$row["file_contents"]);
 
 foreach($rowDatas as $ros) {
 
-echo $ros . "<br>";
+echo $ros;
+
+$sql = "INSERT INTO comps(file_contents) VALUES('$ros')";
+if (mysqli_query($conn, $sql)) {
+  echo "New record created successfully";
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+} else {
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
 
 /*
 $dateCr=date_create("$ros[1]");

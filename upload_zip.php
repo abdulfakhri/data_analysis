@@ -12,7 +12,7 @@ if ($zip) {
       // Read open directory entry
      $contents = zip_entry_read($zip_entry,100000);
       
-$sql = "INSERT INTO gdata(filename,file_contents) VALUES('$names',' $contents')";
+$sql = "INSERT INTO gdata(filename,file_contents) VALUES('$names','$contents')";
   if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
