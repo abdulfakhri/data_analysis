@@ -1,6 +1,4 @@
-
 <?php
-
 $connect = new PDO("mysql:host=localhost;dbname=u587940520_gary", "u587940520_gray", "!@#123qweasdZXC");
 
 $start_date_error = '';

@@ -52,7 +52,7 @@ $vol=strchr($rowData[10]," ");
 $volume=str_replace("$vol"," ",$rowData[10]);
 
 $dateCr=date_create("$rowData[1]");
-$date=date_format($dateCr,"d/m/y");
+$date=date_format($dateCr,"Y-m-d");
 
 $volume = number_format($rowData[6]);
 $priceClose =round($rowData[5],2);
@@ -69,7 +69,7 @@ echo "<td>"."N/A"."</td>";
 echo "</tr>";
 */
 
-$sql = "INSERT INTO history_data(H_date,PriceClose,Volume,CompanyCode) VALUES('$date','$priceClose','$volume','$CompCode')";
+$sql = "INSERT INTO historydata(Hdate,PriceClose,Volume,CompanyCode) VALUES('$date','$priceClose','$volume','$CompCode')";
 if(mysqli_query($conn, $sql)) {
   echo "New record created successfully";
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
