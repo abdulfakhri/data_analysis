@@ -56,7 +56,7 @@ $date=date_format($dateCr,"d/m/y");
 $volume = number_format($rowData[6]);
 $priceClose =round($rowData[5],2);
 $CompCode=$rowData[0];
-
+/*
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
@@ -66,7 +66,16 @@ echo "<td>".$CompCode."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
+*/
+echo "<tr>".$CompCode."</t
 
+echo "<tr>".$cr++."</td>";
+echo "<td>".$date."</td>";
+echo "<td>".$priceClose."</td>";
+echo "<td>".$volume."</td>";
+echo "<td>"."N/A"."</td>";
+echo "<td>"."N/A"."</td>";
+echo "</tr>";
 
 }
 
