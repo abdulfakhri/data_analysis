@@ -52,8 +52,8 @@ if(isset($_POST["export"])){
 }
 
 $query = "
-SELECT * FROM tbl_order 
-ORDER BY order_date DESC;
+SELECT * FROM historydata LIMIT 10
+ORDER BY hdate DESC;
 ";
 
 $statement = $connect->prepare($query);
@@ -97,7 +97,7 @@ $result = $statement->fetchAll();
     <table class="table table-bordered table-striped">
      <thead>
       <tr>
-       <th>Order ID</th>
+       <th>ID</th>
        <th>Customer Name</th>
        <th>Item</th>
        <th>Value</th>
@@ -110,11 +110,11 @@ $result = $statement->fetchAll();
       {
        echo '
        <tr>
-        <td>'.$row["order_id"].'</td>
-        <td>'.$row["order_customer_name"].'</td>
-        <td>'.$row["order_item"].'</td>
-        <td>'.$row["order_value"].'</td>
-        <td>'.$row["order_date"].'</td>
+        <td>'.$row["id"].'</td>
+        <td>'.$row["price_close"].'</td>
+        <td>'.$row["volume"].'</td>
+        <td>'.$row["company_code"].'</td>
+        <td>'.$row["hdate"].'</td>
        </tr>
        ';
       }
