@@ -12,7 +12,13 @@ while($row = $result->fetch_assoc()) {
 
 $rowDatas=explode(",",$row["file_contents"]);  
 
-echo $rowDatas."<br>";
+//echo $rowDatas."<br>";
+
+foreach($rowDatas as $rd){
+
+    echo $rd . "</br>";
+
+}
 
 
 
