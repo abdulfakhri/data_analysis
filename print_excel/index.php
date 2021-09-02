@@ -81,10 +81,12 @@ $result = $statement->fetchAll();
      <form method="post">
       <div class="input-daterange">
        <div class="col-md-4">
+           <lable>Start Date:</lable>
         <input type="text" name="start_date" class="form-control" readonly />
         <?php echo $start_date_error; ?>
        </div>
        <div class="col-md-4">
+            <lable>End Date:</lable>
         <input type="text" name="end_date" class="form-control" readonly />
         <?php echo $end_date_error; ?>
        </div>
