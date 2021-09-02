@@ -24,7 +24,7 @@ if(isset($_POST["export"])){
 
   $file = fopen('php://output', 'w');
 
-  $header = array("Order ID", "Customer Name", "Item Name", "Order Value", "Order Date");
+  $header = array("Date", "Customer Name", "Item Name", "Order Value", "Order Date");
 
   fputcsv($file, $header);
 

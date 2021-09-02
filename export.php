@@ -31,7 +31,9 @@ if(isset($_POST["export"])){
   $query = "
   SELECT * FROM historydata 
   WHERE Hdate >= '".$_POST["start_date"]."' 
-  AND Hdate  <= '".$_POST["end_date"]."'";
+  AND Hdate  <= '".$_POST["end_date"]."'
+  ORDER BY ID DESC
+  ";
   $statement = $connect->prepare($query);
   $statement->execute();
   $result = $statement->fetchAll();
@@ -42,8 +44,8 @@ if(isset($_POST["export"])){
    $data[] = $row["PriceClose"];
    $data[] = $row["Volume"];
    $data[] = $row["CompanyCode"];
-   $data[] = "N/A";
-   $data[] = "N/A";
+   $data[] = $row["Volume"];
+   $data[] = $row["CompanyCode"];
    fputcsv($file, $data);
   }
   fclose($file);
@@ -51,7 +53,10 @@ if(isset($_POST["export"])){
  }
 }
 
-$query = "SELECT * FROM historydata ";
+$query = "
+SELECT * FROM historydata 
+ORDER BY Hdate DESC;
+";
 
 $statement = $connect->prepare($query);
 $statement->execute();
@@ -96,26 +101,22 @@ $result = $statement->fetchAll();
     <table class="table table-bordered table-striped">
      <thead>
       <tr>
-       <th>Order ID</th>
-       <th>Customer Name</th>
-       <th>Item</th>
-       <th>Value</th>
-       <th>Order Date</th>
+       <th>Date</th>
+       <th>Close</th>
+       <th>Volume</th>
+       <th>CompanyCode</th>
       </tr>
      </thead>
      <tbody>
       <?php
-      $ki=1;
+    
       foreach($result as $row){
        echo '
        <tr>
-        <td>'."N/A".'</td>
         <td>'.$row["Hdate"].'</td>
         <td>'.$row["PriceClose"].'</td>
         <td>'.$row["Volume"].'</td>
         <td>'.$row["CompanyCode"].'</td>
-        <td>'."N/A".'</td>
-        <td>'."N/A".'</td>
        </tr>
        ';
       }
