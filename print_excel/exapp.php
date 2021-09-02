@@ -1,10 +1,12 @@
 <?php
 include('connection.php');
+
 if(isset($_POST['submit'])){
+
 $date1=$_POST['date1'];
 $date2=$_POST['date2'];
-$SQL = "SELECT * 
-FROM excel
+
+$SQL = "SELECT * FROM excel
 where  DATE(date) BETWEEN '$date1' AND '$date2'";
 $header = '';
 $result ='';
@@ -15,8 +17,7 @@ for ( $i = 0; $i < $fields; $i++ )
 {
     $header .= mysql_field_name( $exportData , $i ) . "\t";
 }
-while( $row = mysql_fetch_row( $exportData ) )
-{
+while( $row = mysql_fetch_row( $exportData ) ){
     $line = '';
     foreach( $row as $value )
     {                                            
@@ -35,8 +36,7 @@ while( $row = mysql_fetch_row( $exportData ) )
 }
 $result = str_replace( "\r" , "" , $result );
  
-if ( $result == "" )
-{
+if ( $result == "" ){
     $result = "\nNo Record(s) Found!\n";                        
 }
 header("Content-type: application/octet-stream");
