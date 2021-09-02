@@ -42,7 +42,7 @@ $cr=1;
 $day=1;
 while($row = $result->fetch_assoc()) {
 
-$rowDatas=explode(",",$row["file_contents"]);  
+$rowData=explode(",",$row["file_contents"]);  
 
 $code=str_replace("newd/","",$row["filename"]);
 $code=str_replace(".csv","",$code);
@@ -55,33 +55,28 @@ $dateCr=date_create("$rowData[1]");
 $date=date_format($dateCr,"d/m/y");
 
 $volume = number_format($rowData[6]);
-
-$cn=count($rowDatas);
-
-for($i=0;$i<$cn;$i++) {
-
+$priceClose =round($rowData[5],2);
+$CompCode=$rowData[0];
+/*
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
-echo "<td>".round($rowData[5],2)."</td>";
+echo "<td>".$priceClose."</td>";
 echo "<td>".$volume."</td>";
-echo "<td>".$rowData[0]."</td>";
+echo "<td>".$CompCode."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
-/*
-$sql = "INSERT INTO companydata(file_contents) VALUES('$rowDatas[$i]')";
+*/
+
+$sql = "INSERT INTO history_data(H_date,PriceClose,Volume,CompanyCode) VALUES('$date','$priceClose','$volume','$CompCode')";
 if(mysqli_query($conn, $sql)) {
   echo "New record created successfully";
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
-*/
 
-
-
-}
 
 }
 

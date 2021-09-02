@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Table with database</title>
+<title>ASX Data</title>
 <style>
 table {
 border-collapse: collapse;
@@ -55,16 +55,19 @@ $dateCr=date_create("$rowData[1]");
 $date=date_format($dateCr,"d/m/y");
 
 $volume = number_format($rowData[6]);
+$priceClose =round($rowData[5],2);
+$CompCode=$rowData[0];
 
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
-echo "<td>".round($rowData[5],2)."</td>";
+echo "<td>".$priceClose."</td>";
 echo "<td>".$volume."</td>";
-echo "<td>".$rowData[0]."</td>";
+echo "<td>".$CompCode."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
+
 
 }
 
