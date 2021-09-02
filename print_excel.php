@@ -51,10 +51,7 @@ if(isset($_POST["export"])){
  }
 }
 
-$query = "
-SELECT * FROM historydata LIMIT 10
-ORDER BY hdate DESC;
-";
+$query = "SELECT * FROM historydata LIMIT 10";
 
 $statement = $connect->prepare($query);
 $statement->execute();
