@@ -44,7 +44,7 @@ while($row = $result->fetch_assoc()) {
 
 $rowDatas=explode("\n",$row["file_contents"]);  
 
-echo $rowDatas;
+echo $rowDatas[0];
 
 /*
 foreach($rowDatas as $ros) {
