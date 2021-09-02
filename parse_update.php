@@ -32,7 +32,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <?php
 include_once 'database.php';
 
-$sql = "SELECT * FROM company_data";
+$sql = "SELECT * FROM company_data2 ";
 
 $result = $conn->query($sql);
 
@@ -57,7 +57,7 @@ $date=date_format($dateCr,"Y-m-d");
 $volume = number_format($rowData[6]);
 $priceClose =round($rowData[5],2);
 $CompCode=$rowData[0];
-$ID=$rowData[0];
+$ID=$row[ID];
 /*
 echo "<tr>";
 echo "<td>".$cr++."</td>";
@@ -77,12 +77,14 @@ echo "</tr>";
 */
 
 
-$sql = "UPDATE company_data SET hdate='$date' WHERE id='$ID'";
+$sql = "UPDATE companydata2 SET hdate='$date' WHERE ID='$ID'";
 
 if (mysqli_query($conn, $sql)) {
   echo "Record updated successfully";
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 } else {
-  echo "Error updating record: " . mysqli_error($conn);
+ // echo "Error updating record: " . mysqli_error($conn);
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
 /*
