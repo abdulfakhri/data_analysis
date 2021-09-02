@@ -1,6 +1,6 @@
 
 <?php
-$connect = new PDO("mysql:host=localhost;dbname=u587940520_gary", "u587940520_gray", "!@#123qweasdZXC");
+include_once 'database.php';
 
 $start_date_error = '';
 $end_date_error = '';
@@ -24,27 +24,30 @@ if(isset($_POST["export"])){
 
   $file = fopen('php://output', 'w');
 
-  $header = array("Order ID", "Customer Name", "Item Name", "Order Value", "Order Date");
+  $header = array("No", "Date", "Close", "Volume","Company Code","Share Issues","Market Cap");
 
   fputcsv($file, $header);
 
   $query = "
-  SELECT * FROM tbl_order 
-  WHERE order_date >= '".$_POST["start_date"]."' 
-  AND order_date <= '".$_POST["end_date"]."' 
-  ORDER BY order_date DESC
+  SELECT * FROM history_data 
+  WHERE H_date >= '".$_POST["start_date"]."' 
+  AND H_date  <= '".$_POST["end_date"]."' 
+  ORDER BY H_date  DESC
   ";
   $statement = $connect->prepare($query);
   $statement->execute();
   $result = $statement->fetchAll();
+  $i=1;
   foreach($result as $row)
   {
    $data = array();
-   $data[] = $row["order_id"];
-   $data[] = $row["order_customer_name"];
-   $data[] = $row["order_item"];
-   $data[] = $row["order_value"];
-   $data[] = $row["order_date"];
+   $data[] = $i++;
+   $data[] = $row["H_date"];
+   $data[] = $row["PriceClose"];
+   $data[] = $row["Volume"];
+   $data[] = $row["CompanyCode"];
+   $data[] = "N/A";
+   $data[] = "N/A";
    fputcsv($file, $data);
   }
   fclose($file);
@@ -53,7 +56,7 @@ if(isset($_POST["export"])){
 }
 
 $query = "
-SELECT * FROM tbl_order 
+SELECT * FROM history_data 
 ORDER BY order_date DESC;
 ";
 
@@ -73,7 +76,7 @@ $result = $statement->fetchAll();
  </head>
  <body>
   <div class="container box">
-   <h1 align="center">Daterange Mysql Data Export to CSV in PHP</h1>
+   <h1 align="center">Export ASX Companies History</h1>
    <br />
    <div class="table-responsive">
     <br />
@@ -109,15 +112,29 @@ $result = $statement->fetchAll();
      </thead>
      <tbody>
       <?php
+   $data[] = $i++;
+   $data[] = $row["H_date"];
+   $data[] = $row["PriceClose"];
+   $data[] = $row["Volume"];
+   $data[] = $row["CompanyCode"];
+   $data[] = "N/A";
+   $data[] = "N/A";
+
+
+
+
+      $i=1;
       foreach($result as $row)
       {
        echo '
        <tr>
-        <td>'.$row["order_id"].'</td>
-        <td>'.$row["order_customer_name"].'</td>
-        <td>'.$row["order_item"].'</td>
-        <td>'.$row["order_value"].'</td>
-        <td>'.$row["order_date"].'</td>
+        <td>'.$i++.'</td>
+        <td>'.$row["H_date"].'</td>
+        <td>'.$row["PriceClose"].'</td>
+        <td>'.$row["Volume"].'</td>
+        <td>'.$row["CompanyCode"].'</td>
+        <td>'."N/A".'</td>
+        <td>'."N/A".'</td>
        </tr>
        ';
       }
