@@ -32,7 +32,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <?php
 include_once 'database.php';
 
-$sql = "SELECT * FROM gdata LIMIT 3";
+$sql = "SELECT * FROM gdata";
 
 $result = $conn->query($sql);
 
@@ -48,7 +48,7 @@ $cn=count($rowDatas);
 
 for($i=0;$i<$cn;$i++) {
 //echo $rowDatas[$i]."<br/>";
-$sql = "INSERT INTO cmps(file_contents) VALUES('$rowDatas[$i]')";
+$sql = "INSERT INTO companydata(file_contents) VALUES('$rowDatas[$i]')";
 if(mysqli_query($conn, $sql)) {
   echo "New record created successfully";
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
