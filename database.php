@@ -9,5 +9,5 @@ $conn = new mysqli($hostname, $username, $password,$databasename);
 if ($conn->connect_error) { 
 die("Unable to Connect database: " . $conn->connect_error);
  }
- $connect = new PDO("mysql:host=localhost;dbname=u587940520_gary", "u587940520_gray", "!@#123qweasdZXC");
+// $connect = new PDO("mysql:host=localhost;dbname=u587940520_gary", "u587940520_gray", "!@#123qweasdZXC");
 ?>
