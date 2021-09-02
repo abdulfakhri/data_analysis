@@ -32,7 +32,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <?php
 include_once 'database.php';
 
-$sql = "SELECT * FROM gdata";
+$sql = "SELECT * FROM gdata LIMIT 3";
 
 $result = $conn->query($sql);
 
