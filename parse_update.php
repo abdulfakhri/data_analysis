@@ -32,7 +32,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <?php
 include_once 'database.php';
 
-$sql = "SELECT * FROM companydata";
+$sql = "SELECT * FROM company_data";
 
 $result = $conn->query($sql);
 
@@ -57,6 +57,7 @@ $date=date_format($dateCr,"Y-m-d");
 $volume = number_format($rowData[6]);
 $priceClose =round($rowData[5],2);
 $CompCode=$rowData[0];
+$ID=$rowData[0];
 /*
 echo "<tr>";
 echo "<td>".$cr++."</td>";
@@ -67,16 +68,32 @@ echo "<td>".$CompCode."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
+ `ID` int(10) NOT NULL,
+  `hdate` varchar(255) DEFAULT NULL,
+  `filename` varchar(255) DEFAULT NULL,
+  `file_contents` longtext DEFAULT NULL,
+  `CompanyCode` varchar(255) DEFAULT NULL,
+  `DateS` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 */
 
-$sql = "INSERT INTO historydata2(hdate,price_close,volume,company_code) VALUES('$date','$priceClose','$volume','$CompCode')";
 
+$sql = "UPDATE company_data SET hdate='$date' WHERE id='$ID'";
+
+if (mysqli_query($conn, $sql)) {
+  echo "Record updated successfully";
+} else {
+  echo "Error updating record: " . mysqli_error($conn);
+}
+
+/*
+$sql = "INSERT INTO company_data(hdate,price_close,volume,company_code) VALUES('$date','$priceClose','$volume','$CompCode')";
 if(mysqli_query($conn, $sql)) {
   echo "New record created successfully";
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
+*/
 
 
 }
