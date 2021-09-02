@@ -25,7 +25,6 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <th>Date</th>
 <th>Close</th>
 <th>Volume</th>
-<th>CompanyCode</th>
 <th>Share Issues</th>
 <th>Market Capt</th>
 </tr>
@@ -68,15 +67,14 @@ echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
 */
-
+echo "<tr><th>".$CompCode."</tr></th>";
 echo "<tr>";
-echo "<tr>".$cr++."</tr>";
-echo "<tr>".$date."</tr>";
-echo "<tr>".$priceClose."</tr>";
-echo "<tr>".$volume."</tr>>";
-echo "<tr>".$CompCode."</tr>";
-echo "<tr>"."N/A"."</tr>>";
-echo "<tr>"."N/A"."</tr>>";
+echo "<tr>".$cr++."</td>";
+echo "<td>".$date."</td>";
+echo "<td>".$priceClose."</td>";
+echo "<td>".$volume."</td>";
+echo "<td>"."N/A"."</td>";
+echo "<td>"."N/A"."</td>";
 echo "</tr>";
 
 }
