@@ -1,6 +1,8 @@
 <?php
 
-$connect = new PDO("mysql:host=localhost;dbname=u587940520_gary", "u587940520_gray", "!@#123qweasdZXC");
+$connect = new PDO("mysql:host=localhost;dbname=gar", "root", "root");
+
+//$connect = new PDO("mysql:host=localhost;dbname=u587940520_gary", "u587940520_gray", "!@#123qweasdZXC");
 
 $start_date_error = '';
 $end_date_error = '';
@@ -24,26 +26,30 @@ if(isset($_POST["export"])){
 
   $file = fopen('php://output', 'w');
 
-  $header = array("Order ID", "Customer Name", "Item Name", "Order Value", "Order Date");
+  $header = array("No","Date" ,"Close", "Volume", "Company Code","Share Issues","Market Cap");
 
   fputcsv($file, $header);
 
   $query = "
-  SELECT * FROM tbl_order 
-  WHERE order_date >= '".$_POST["start_date"]."' 
-  AND order_date <= '".$_POST["end_date"]."' 
-  ORDER BY order_date DESC
+  SELECT * FROM historydata 
+  WHERE hdate >= '".$_POST["start_date"]."' 
+  AND hdate <= '".$_POST["end_date"]."' 
+  ORDER BY hdate DESC
   ";
   $statement = $connect->prepare($query);
   $statement->execute();
   $result = $statement->fetchAll();
+  $i=1;
   foreach($result as $row){
    $data = array();
-   $data[] = $row["order_id"];
-   $data[] = $row["order_customer_name"];
-   $data[] = $row["order_item"];
-   $data[] = $row["order_value"];
-   $data[] = $row["order_date"];
+   $data[] = $i++;
+   $data[] = $row["hdate"];
+   $data[] = $row["price_close"];
+   $data[] = $row["volume"];
+   $data[] = $row["company_code"];
+   $data[] = "N/A";
+   $data[] = "N/A";
+
    fputcsv($file, $data);
   }
   fclose($file);
@@ -61,7 +67,7 @@ $result = $statement->fetchAll();
 
 <html>
  <head>
-  <title>Daterange Mysql Data Export to CSV in PHP</title>
+  <title>ASX</title>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" />
@@ -69,7 +75,7 @@ $result = $statement->fetchAll();
  </head>
  <body>
   <div class="container box">
-   <h1 align="center">Daterange Mysql Data Export to CSV in PHP</h1>
+   <h1 align="center">ASX</h1>
    <br />
    <div class="table-responsive">
     <br />
@@ -95,10 +101,10 @@ $result = $statement->fetchAll();
      <thead>
       <tr>
        <th>ID</th>
-       <th>Customer Name</th>
-       <th>Item</th>
-       <th>Value</th>
-       <th>Order Date</th>
+       <th>Close</th>
+       <th>Volume</th>
+       <th>CompanyCode</th>
+       <th>Date</th>
       </tr>
      </thead>
      <tbody>
