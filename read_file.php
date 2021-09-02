@@ -67,7 +67,7 @@ echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
 */
-echo "<tr><th>".$CompCode."</tr></th>";
+echo "<tr>".$CompCode."</tr>";
 echo "<tr>";
 echo "<tr>".$cr++."</td>";
 echo "<td>".$date."</td>";
