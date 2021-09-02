@@ -16,7 +16,7 @@ $rowDatas=explode(",",$row["file_contents"]);
 
 foreach($rowDatas as $rd){
 
-    echo $rd . "</br>";
+    echo $rd[0]." ".$rd[1]." ".$rd[2]." ".$rd[3]."</br>";
 
 }
 
