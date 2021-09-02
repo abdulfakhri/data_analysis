@@ -56,8 +56,6 @@ $date=date_format($dateCr,"d/m/y");
 
 $volume = number_format($rowData[6]);
 
-
-
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
