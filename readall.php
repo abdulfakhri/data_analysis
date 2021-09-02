@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Table with database</title>
+<title>ASX Data</title>
 <style>
 table {
 border-collapse: collapse;
@@ -25,14 +25,13 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <th>Date</th>
 <th>Close</th>
 <th>Volume</th>
-<th>CompanyCode</th>
 <th>Share Issues</th>
 <th>Market Capt</th>
 </tr>
 <?php
 include_once 'database.php';
 
-$sql = "SELECT * FROM gdata";
+$sql = "SELECT * FROM companydata LIMIT 20";
 
 $result = $conn->query($sql);
 
@@ -44,25 +43,29 @@ while($row = $result->fetch_assoc()) {
 
 $rowData=explode(",",$row["file_contents"]);  
 
-$date=str_replace("Volume","",$rowData[5]);
 $code=str_replace("newd/","",$row["filename"]);
 $code=str_replace(".csv","",$code);
 //$volume=explode(" ",$rowData[10]);
+
 $vol=strchr($rowData[10]," ");
 $volume=str_replace("$vol"," ",$rowData[10]);
 
 $dateCr=date_create("$rowData[1]");
-$date=date_format($dateCr,"Y-m-d");
+$date=date_format($dateCr,"d/m/y");
+
+$volume = number_format($rowData[6]);
+$priceClose =round($rowData[5],2);
+$CompCode=$rowData[0];
 
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
-echo "<td>".$rowData[9]."</td>";
+echo "<td>".$priceClose."</td>";
 echo "<td>".$volume."</td>";
-echo "<td>".$rowData[0]."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
+
 
 }
 
