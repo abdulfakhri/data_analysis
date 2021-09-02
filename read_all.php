@@ -30,49 +30,48 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <th>Market Capt</th>
 </tr>
 <?php
-include ('database.php');
+include_once 'database.php';
 
 $sql = "SELECT * FROM gdata";
 
 $result = $conn->query($sql);
+
 if ($result->num_rows > 0) {
 // output data of each row
 $cr=1;
+$day=1;
 while($row = $result->fetch_assoc()) {
 
-$rowData=explode(",",$row["file_contents"]);  
+$rowDatas=explode(",",$row["file_contents"]);  
 
-$date=str_replace("Volume","",$rowData[5]);
-$code=str_replace("garyData/","",$row["filename"]);
+foreach($rowDatas as $rowd) {
+
+$code=str_replace("newd/","",$rowd["filename"]);
+
 $code=str_replace(".csv","",$code);
-//$volume=explode(" ",$rowData[10]);
-$vol=strchr($rowData[10]," ");
-$volume=str_replace("$vol"," ",$rowData[10]);
 
- $str_CSV = $row['file_contents'];
 
- $ro = str_getcsv($str_CSV, "\n");  
- $length = count($ro);   
- for($i=0;$i<$length;$i++) {  
-  $val = str_getcsv($ro[$i], ",");  
-  print_r($val);
 
-/*
+$dateCr=date_create("$rowData[1]");
+$date=date_format($dateCr,"Y-m-d");
+
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
-echo "<td>".$rowData[9]."</td>";
-echo "<td>".$volume."</td>";
-echo "<td>".$code."</td>";
+echo "<td>".$rowd[9]."</td>";
+echo "<td>".$rowd[10]."</td>";
+echo "<td>".$rowd[0]."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
-*/
+
+}
 
 }
 
 } else { 
-    echo "0 results"; }
+    echo "0 results"; 
+}
 $conn->close();
 ?>
 </table>

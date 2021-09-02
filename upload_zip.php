@@ -8,31 +8,10 @@ if ($zip) {
     $names=zip_entry_name($zip_entry);
     // Open directory entry for reading
     if (zip_entry_open($zip, $zip_entry)) {
-      //echo "File Contents:<br>";
+      
       // Read open directory entry
      $contents = zip_entry_read($zip_entry,100000);
       
-  //echo $contents."<br>";
-
-       
-$servername = "localhost";
-$username = "u587940520_gray";
-$password = "!@#123qweasdZXC";
-$dbname = "u587940520_gary";
-
-/*
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "gar";
-*/
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-
 $sql = "INSERT INTO gdata(filename,file_contents) VALUES('$names',' $contents')";
   if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
@@ -40,9 +19,6 @@ $sql = "INSERT INTO gdata(filename,file_contents) VALUES('$names',' $contents')"
   } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
-  mysqli_close($conn);
-
-
  zip_entry_close($zip_entry);
 
 }

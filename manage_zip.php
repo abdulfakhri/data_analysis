@@ -1,5 +1,5 @@
 <?php
-include ('database.php');
+include_once 'database.php';
 
 $zipfile = zip_open("newd.zip");
 
@@ -36,7 +36,9 @@ zip_close($zipfile);
 
 }
 
-//function uploadZip($zipfile){
+function uploadZip($zipfile){
+
+
 if ($zipfile) {
   while ($zip_entry = zip_read($zipfile)) {
     echo "<p>Name: " . zip_entry_name($zip_entry) . "<br>";
@@ -63,7 +65,8 @@ if ($zipfile) {
 zip_close($zipfile);
 }
 
-//}
+
+}
 //echo "--------------------------------------------------------------------------------------------------------";
 
 //readContents($zip);
@@ -71,3 +74,5 @@ zip_close($zipfile);
 //readName($zip);
 
 //uploadZip($zip);
+
+  mysqli_close($conn);
