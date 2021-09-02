@@ -24,7 +24,7 @@ if(isset($_POST["export"])){
 
   $file = fopen('php://output', 'w');
 
-  $header = array("No", "Date", "Close", "Volume","Company Code","Share Issues","Market Cap");
+  $header = array("Date", "Close", "Volume","Company Code","Share Issues","Market Cap");
 
   fputcsv($file, $header);
 
@@ -39,7 +39,6 @@ if(isset($_POST["export"])){
   $i=1;
   foreach($result as $row){
    $data = array();
-   $data[] = $i++;
    $data[] = $row["H_date"];
    $data[] = $row["PriceClose"];
    $data[] = $row["Volume"];
@@ -53,9 +52,7 @@ if(isset($_POST["export"])){
  }
 }
 
-$query = "
-SELECT * FROM history_data 
-";
+$query = "SELECT * FROM history_data ";
 
 $statement = $connect->prepare($query);
 $statement->execute();
@@ -113,7 +110,7 @@ $result = $statement->fetchAll();
       foreach($result as $row){
        echo '
        <tr>
-        <td>'.$ki++.'</td>
+        <td>'."N/A".'</td>
         <td>'.$row["H_date"].'</td>
         <td>'.$row["PriceClose"].'</td>
         <td>'.$row["Volume"].'</td>
