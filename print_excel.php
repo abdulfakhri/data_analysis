@@ -100,11 +100,12 @@ $result = $statement->fetchAll();
     <table class="table table-bordered table-striped">
      <thead>
       <tr>
-       <th>ID</th>
+       <th>No.</th>
+        <th>Date</th>
        <th>Close</th>
        <th>Volume</th>
-       <th>CompanyCode</th>
-       <th>Date</th>
+       <th>Share Issues</th>
+       <th>Market Cap</th>
       </tr>
      </thead>
      <tbody>
