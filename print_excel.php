@@ -110,12 +110,12 @@ $result = $statement->fetchAll();
      <tbody>
       <?php
       foreach($result as $row){
-
+      $ar=explode(",",$row["file_contents"]);
        echo '
        <tr>
         <td>'.$row["id"].'</td>
         <td>'.$row["filename"].'</td>
-        <td>'.$row["file_contents"].'</td>
+        <td>'.$ar[1].'</td>
         <td>'.$row["company_codes"].'</td>
         <td>'.$row["hdate"].'</td>
        </tr>
