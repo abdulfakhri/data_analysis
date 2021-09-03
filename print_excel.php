@@ -42,6 +42,7 @@ if(isset($_POST["export"])){
   $statement->execute();
   $result = $statement->fetchAll();
   $i=1;
+
   foreach($result as $row){
 
 $rowData=explode(",",$row["file_contents"]);  
@@ -57,6 +58,7 @@ $priceClose =round($rowData[5],2);
 $CompCode=$rowData[0];
 
    $data = array();
+   
    $data[] = $i++;
    $data[] = $date;
    $data[] = $priceClose;
@@ -69,6 +71,9 @@ $CompCode=$rowData[0];
   }
   fclose($file);
   exit;
+
+
+
  }
 }
 
