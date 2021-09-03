@@ -51,8 +51,8 @@ $code=str_replace(".csv","",$code);
 
 $vol=strchr($rowData[10]," ");
 $volume=str_replace("$vol"," ",$rowData[10]);
-$dateCr=date_create("$row[2]");
-$date=date_format($dateCr,"d/m/y");
+//$dateCr=date_create("$row[2]");
+$date=date_format($row[2],"d/m/y");
 $volume = number_format($rowData[6]);
 $priceClose =round($rowData[5],2);
 $CompCode=$rowData[0];
