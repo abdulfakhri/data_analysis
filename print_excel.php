@@ -113,7 +113,18 @@ $result = $statement->fetchAll();
     </div>
     <br />
     <table class="table table-bordered table-striped">
-     
+     <thead>
+      <tr>
+       <th>No.</th>
+        <th>Date</th>
+       <th>Close</th>
+       <th>Volume</th>
+        <th>Company Code</th>
+       <th>Share Issues</th>
+       <th>Market Cap</th>
+      </tr>
+     </thead>
+     <tbody>
       <?php
       $cr=1;
       foreach($result as $row){
@@ -131,21 +142,8 @@ $volume = number_format($rowData[6]);
 $priceClose =round($rowData[5],2);
 $CompCode=$rowData[0];
 ?>
-<thead>
-      <tr><?php echo $code; ?></tr>
-       <th>No.</th>
-        <th>Date</th>
-       <th>Close</th>
-       <th>Volume</th>
-        <th>Company Code</th>
-       <th>Share Issues</th>
-       <th>Market Cap</th>
-      </tr>
-     </thead>
-     <tbody>
-<?php
 
-echo "<tr>";
+echo "<td>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
 echo "<td>".$priceClose."</td>";
@@ -153,7 +151,7 @@ echo "<td>".$volume."</td>";
 echo "<td>".$code."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
-echo "</tr>";
+echo "</td>";
 
 
       }
