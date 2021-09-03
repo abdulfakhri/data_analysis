@@ -32,7 +32,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <?php
 include_once 'database.php';
 
-$sql = "SELECT * FROM companydata3 LIMIT 307956 OFFSET 228717 ";
+$sql = "SELECT * FROM companydata3 LIMIT 615912 OFFSET 536673 ";
 
 $result = $conn->query($sql);
 
