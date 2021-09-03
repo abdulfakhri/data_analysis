@@ -1,6 +1,15 @@
- <?php   
- $connect = mysqli_connect("localhost", "u587940520_gray", "u587940520_gary", "!@#123qweasdZXC");  
- 
+ <?php 
+ $hostname     = "localhost";
+$username     = "u587940520_gray";
+$password     = "!@#123qweasdZXC"; 
+$databasename = "u587940520_gary"; 
+// Create connection 
+$connect = new mysqli($hostname, $username, $password,$databasename);
+ // Check connection 
+if ($conn->connect_error) { 
+die("Unable to Connect database: " . $conn->connect_error);
+ }  
+
  $query = "SELECT * FROM tbl_employee";  
  $result = mysqli_query($connect, $query);  
  ?>  
