@@ -30,20 +30,15 @@ if(isset($_POST["export"])){
 
   fputcsv($file, $header);
 
-  $query = "
-  SELECT * FROM company_data 
-  WHERE hdate >='2011-01-01' 
-  AND hdate <='2021-07-30' 
-  ORDER BY hdate DESC
-  ";
-  /*  
-   $query = "
+  
+    
+ $query = "
   SELECT * FROM company_data 
   WHERE hdate >= '".$_POST["start_date"]."' 
   AND hdate <= '".$_POST["end_date"]."' 
   ORDER BY hdate DESC
   ";
-  */
+  
   $statement = $connect->prepare($query);
   $statement->execute();
   $result = $statement->fetchAll();
