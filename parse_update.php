@@ -41,6 +41,9 @@ if ($result->num_rows > 0) {
 $cr=1;
 $day=1;
 while($row = $result->fetch_assoc()) {
+$cn=count($row);
+
+for($i=1;$i<76239;$i++) {
 
 $rowData=explode(",",$row["file_contents"]);  
 
@@ -57,25 +60,8 @@ $date=date_format($dateCr,"Y-m-d");
 $volume = number_format($rowData[6]);
 $priceClose =round($rowData[5],2);
 $CompCode=$rowData[0];
-$ID=$row[ID];
-/*
-echo "<tr>";
-echo "<td>".$cr++."</td>";
-echo "<td>".$date."</td>";
-echo "<td>".$priceClose."</td>";
-echo "<td>".$volume."</td>";
-echo "<td>".$CompCode."</td>";
-echo "<td>"."N/A"."</td>";
-echo "<td>"."N/A"."</td>";
-echo "</tr>";
- `ID` int(10) NOT NULL,
-  `hdate` varchar(255) DEFAULT NULL,
-  `filename` varchar(255) DEFAULT NULL,
-  `file_contents` longtext DEFAULT NULL,
-  `CompanyCode` varchar(255) DEFAULT NULL,
-  `DateS` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-*/
 
+$ID=$row["ID"];
 
 $sql = "UPDATE companydata2 SET hdate='$date' WHERE ID='$ID'";
 
@@ -87,16 +73,7 @@ if (mysqli_query($conn, $sql)) {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
-/*
-$sql = "INSERT INTO company_data(hdate,price_close,volume,company_code) VALUES('$date','$priceClose','$volume','$CompCode')";
-if(mysqli_query($conn, $sql)) {
-  echo "New record created successfully";
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
-*/
-
 
 }
 
