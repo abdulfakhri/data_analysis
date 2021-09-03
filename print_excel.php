@@ -98,11 +98,11 @@ $result = $statement->fetchAll();
      <form method="post">
       <div class="input-daterange">
        <div class="col-md-4">
-     <label>Start Date  </label>  <input type="text" name="start_date" class="form-control" readonly />
+     Start Date <input type="text" name="start_date" class="form-control" readonly />
         <?php echo $start_date_error; ?>
        </div>
        <div class="col-md-4">
-            <label>End Date  </label>
+            End Date  
         <input type="text" name="end_date" class="form-control" readonly />
         <?php echo $end_date_error; ?>
        </div>
