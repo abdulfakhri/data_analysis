@@ -116,7 +116,7 @@ $result = $statement->fetchAll();
       //$ar=explode(",",$row["file_contents"]);
 
 $rowData=explode(",",$row["file_contents"]);  
-$code=str_replace("newd/","",$rowDate[0]);
+$code=str_replace("newd/","",$rowData[0]);
 $code=str_replace(".csv","",$code);
 
 $vol=strchr($rowData[10]," ");
