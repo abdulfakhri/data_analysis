@@ -57,7 +57,7 @@ if(isset($_POST["export"])){
  }
 }
 
-$query = "SELECT * FROM historydata LIMIT 100 ";
+$query = "SELECT * FROM company_data LIMIT 100 ";
 
 $statement = $connect->prepare($query);
 $statement->execute();
@@ -109,14 +109,14 @@ $result = $statement->fetchAll();
      </thead>
      <tbody>
       <?php
-      foreach($result as $row)
-      {
+      foreach($result as $row){
+
        echo '
        <tr>
         <td>'.$row["id"].'</td>
-        <td>'.$row["price_close"].'</td>
-        <td>'.$row["volume"].'</td>
-        <td>'.$row["company_code"].'</td>
+        <td>'.$row["filename"].'</td>
+        <td>'.$row["file_contents"].'</td>
+        <td>'.$row["company_codes"].'</td>
         <td>'.$row["hdate"].'</td>
        </tr>
        ';
