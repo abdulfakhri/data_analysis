@@ -107,7 +107,7 @@ $result = $statement->fetchAll();
         <?php echo $end_date_error; ?>
        </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-4">
        <input type="submit" name="export" value="Export" class="btn btn-info" />
       </div>
      </form>
