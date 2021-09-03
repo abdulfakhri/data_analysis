@@ -31,7 +31,7 @@ if(isset($_POST["export"])){
   fputcsv($file, $header);
 
   $query = "
-  SELECT * FROM historydata 
+  SELECT * FROM company_data 
   WHERE hdate >= '".$_POST["start_date"]."' 
   AND hdate <= '".$_POST["end_date"]."' 
   ORDER BY hdate DESC
@@ -41,12 +41,35 @@ if(isset($_POST["export"])){
   $result = $statement->fetchAll();
   $i=1;
   foreach($result as $row){
+
+$rowData=explode(",",$row["file_contents"]);  
+$code=str_replace("newd/","",$rowData[0]);
+$code=str_replace(".csv","",$code);
+
+$vol=strchr($rowData[10]," ");
+$volume=str_replace("$vol"," ",$rowData[10]);
+$dateCr=date_create("$rowData[1]");
+$date=date_format($dateCr,"d/m/y");
+$volume = number_format($rowData[6]);
+$priceClose =round($rowData[5],2);
+$CompCode=$rowData[0];
+/*
+echo "<tr>";
+echo "<td>".$cr++."</td>";
+echo "<td>".$date."</td>";
+echo "<td>".$priceClose."</td>";
+echo "<td>".$volume."</td>";
+echo "<td>".$code."</td>";
+echo "<td>"."N/A"."</td>";
+echo "<td>"."N/A"."</td>";
+echo "</tr>";
+*/
    $data = array();
    $data[] = $i++;
-   $data[] = $row["hdate"];
-   $data[] = $row["price_close"];
-   $data[] = $row["volume"];
-   $data[] = $row["company_code"];
+   $data[] = $date;
+   $data[] = $priceClose;
+   $data[] = $volume;
+   $data[] = $code;
    $data[] = "N/A";
    $data[] = "N/A";
 
