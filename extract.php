@@ -35,8 +35,8 @@ die("Unable to Connect database: " . $conn->connect_error);
                                <th width="50%">Designation</th>  
                           </tr>  
                           <?php   
-                          while($row = mysqli_fetch_array($results))  {  
-                            foreach ($results as $result) { 
+                          while($rows = mysqli_fetch_array($results))  {  
+                            foreach ($rows as $row) { 
                           ?>  
                           <tr>  
                                <td><?php echo $row['id']; ?></td>  
