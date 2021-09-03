@@ -143,8 +143,8 @@ $CompCode=$rowData[0];
       </tr>
      </thead>
      <tbody>
-/*
-echo "<td>";
+
+echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
 echo "<td>".$priceClose."</td>";
@@ -152,8 +152,8 @@ echo "<td>".$volume."</td>";
 echo "<td>".$code."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
-echo "</td>";
-*/
+echo "</tr>";
+
 
       }
       ?>
