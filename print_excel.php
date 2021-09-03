@@ -113,18 +113,7 @@ $result = $statement->fetchAll();
     </div>
     <br />
     <table class="table table-bordered table-striped">
-     <thead>
-      <tr>
-       <th>No.</th>
-        <th>Date</th>
-       <th>Close</th>
-       <th>Volume</th>
-        <th>Company Code</th>
-       <th>Share Issues</th>
-       <th>Market Cap</th>
-      </tr>
-     </thead>
-     <tbody>
+     
       <?php
       $cr=1;
       foreach($result as $row){
@@ -141,6 +130,19 @@ $date=date_format($dateCr,"d/m/y");
 $volume = number_format($rowData[6]);
 $priceClose =round($rowData[5],2);
 $CompCode=$rowData[0];
+?>
+<thead>
+      <tr><?php echo $code; ?></tr>
+       <th>No.</th>
+        <th>Date</th>
+       <th>Close</th>
+       <th>Volume</th>
+        <th>Company Code</th>
+       <th>Share Issues</th>
+       <th>Market Cap</th>
+      </tr>
+     </thead>
+     <tbody>
 /*
 echo "<td>";
 echo "<td>".$cr++."</td>";
@@ -152,15 +154,7 @@ echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</td>";
 */
-echo "<td>";
-echo "<tr>".$cr++."</tr>";
-echo "<tr>".$date."</tr>";
-echo "<tr>".$priceClose."</tr>";
-echo "<tr>".$volume."</tr>";
-echo "<tr>".$code."</tr>";
-echo "<tr>"."N/A"."</tr>";
-echo "<tr>"."N/A"."</tr>";
-echo "</td>";
+
       }
       ?>
      </tbody>
