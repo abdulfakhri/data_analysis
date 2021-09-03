@@ -36,7 +36,7 @@ if(isset($_POST["export"])){
   SELECT * FROM company_data 
   WHERE hdate >= '".$_POST["start_date"]."' 
   AND hdate <= '".$_POST["end_date"]."' 
-  ORDER BY hdate DESC
+  ORDER BY hdate ASC
   ";
   
   $statement = $connect->prepare($query);
