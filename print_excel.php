@@ -109,17 +109,30 @@ $result = $statement->fetchAll();
      </thead>
      <tbody>
       <?php
+      $cr=1;
       foreach($result as $row){
-      $ar=explode(",",$row["file_contents"]);
-       echo '
-       <tr>
-        <td>'.$row["id"].'</td>
-        <td>'.$row["filename"].'</td>
-        <td>'.$ar[1].'</td>
-        <td>'.$row["company_codes"].'</td>
-        <td>'.$row["hdate"].'</td>
-       </tr>
-       ';
+      //$ar=explode(",",$row["file_contents"]);
+
+$rowData=explode(",",$row["file_contents"]);  
+$code=str_replace("newd/","",$row["filename"]);
+$code=str_replace(".csv","",$code);
+
+$vol=strchr($rowData[10]," ");
+$volume=str_replace("$vol"," ",$rowData[10]);
+$dateCr=date_create("$rowData[1]");
+$date=date_format($dateCr,"d/m/y");
+$volume = number_format($rowData[6]);
+$priceClose =round($rowData[5],2);
+$CompCode=$rowData[0];
+echo "<tr>";
+echo "<td>".$cr++."</td>";
+echo "<td>".$date."</td>";
+echo "<td>".$priceClose."</td>";
+echo "<td>".$volume."</td>";
+echo "<td>"."N/A"."</td>";
+echo "<td>"."N/A"."</td>";
+echo "</tr>";
+
       }
       ?>
      </tbody>
