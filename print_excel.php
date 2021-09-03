@@ -104,6 +104,7 @@ $result = $statement->fetchAll();
         <th>Date</th>
        <th>Close</th>
        <th>Volume</th>
+        <th>Company Code</th>
        <th>Share Issues</th>
        <th>Market Cap</th>
       </tr>
@@ -130,6 +131,7 @@ echo "<td>".$cr++."</td>";
 echo "<td>".$date."</td>";
 echo "<td>".$priceClose."</td>";
 echo "<td>".$volume."</td>";
+echo "<td>".$code."</td>";
 echo "<td>"."N/A"."</td>";
 echo "<td>"."N/A"."</td>";
 echo "</tr>";
