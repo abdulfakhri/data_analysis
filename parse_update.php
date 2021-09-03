@@ -32,7 +32,7 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <?php
 include_once 'database.php';
 
-$sql = "SELECT * FROM companydata2 ";
+$sql = "SELECT * FROM companydata3 LIMIT 76239 ";
 
 $result = $conn->query($sql);
 
@@ -41,9 +41,8 @@ if ($result->num_rows > 0) {
 $cr=1;
 $day=1;
 while($row = $result->fetch_assoc()) {
-$cn=count($row);
 
-for($i=1;$i<76239;$i++) {
+
 
 $rowData=explode(",",$row["file_contents"]);  
 
@@ -63,7 +62,7 @@ $CompCode=$rowData[0];
 
 $ID=$row["ID"];
 
-$sql = "UPDATE companydata2 SET hdate='$date' WHERE ID='$ID'";
+$sql = "UPDATE companydata3 SET hdate='$date' WHERE ID='$ID'";
 
 if (mysqli_query($conn, $sql)) {
   echo "Record updated successfully";
@@ -73,7 +72,7 @@ if (mysqli_query($conn, $sql)) {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
-}
+
 
 }
 
