@@ -143,6 +143,7 @@ $CompCode=$rowData[0];
       </tr>
      </thead>
      <tbody>
+<?php
 
 echo "<tr>";
 echo "<td>".$cr++."</td>";
