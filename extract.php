@@ -12,7 +12,7 @@ die("Unable to Connect database: " . $conn->connect_error);
 
  $query = "SELECT * FROM tbl_employee";  
  $results = mysqli_query($connect, $query);  
- foreach ($results as $result) { 
+ 
  ?>  
  <!DOCTYPE html>  
  <html>  
@@ -35,8 +35,8 @@ die("Unable to Connect database: " . $conn->connect_error);
                                <th width="50%">Designation</th>  
                           </tr>  
                           <?php   
-                          while($row = mysqli_fetch_array($result))  {  
-
+                          while($row = mysqli_fetch_array($results))  {  
+                            foreach ($results as $result) { 
                           ?>  
                           <tr>  
                                <td><?php echo $row['id']; ?></td>  
