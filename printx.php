@@ -137,28 +137,26 @@ $result = $statement->fetchAll();
       <?php
       $cr=1;
       foreach($result as $row){
-      //$ar=explode(",",$row["file_contents"]);
 
-$rowData=explode(",",$row["file_contents"]);  
-$code=str_replace("newd/","",$rowData[0]);
-$code=str_replace(".csv","",$code);
+ $rowData=explode(",",$row["file_contents"]);  
+//14D,20180912,0.25,0.25,0.205,0.225,3768536,0
+//Date	Price	Open	High	Low	Vol.	Change %
 
-$vol=strchr($rowData[10]," ");
-$volume=str_replace("$vol"," ",$rowData[10]);
-$dateCr=date_create("$rowData[1]");
-$date=date_format($dateCr,"d/m/y");
-$volume = number_format($rowData[6]);
-$priceClose =round($rowData[5],2);
-$CompCode=$rowData[0];
+$company_code=$rowData[0];
+$date=$rowData[1];
+$priceClose=$rowData[2];
+$open=$rowData[3];
+$high=$rowData[4];
+$low=$rowData[5];
+$volume=$rowData[6];
 
 echo "<tr>";
 echo "<td>".$cr++."</td>";
-echo "<td>".$date."</td>";
 echo "<td>".$priceClose."</td>";
+echo "<td>".$open."</td>";
+echo "<td>".$high."</td>";
+echo "<td>".$low."</td>";
 echo "<td>".$volume."</td>";
-echo "<td>".$code."</td>";
-echo "<td>"."N/A"."</td>";
-echo "<td>"."N/A"."</td>";
 echo "</tr>";
 
 
