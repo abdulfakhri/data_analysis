@@ -25,7 +25,9 @@ if(isset($_POST["export"])){
 
   $file = fopen('php://output', 'w');
 
-  $header = array(" No ","        Date        " ,"   Close   ", " Volume ", " Company Code "," Share Issues "," Market Cap ");
+  //$header = array(" No ","        Date        " ,"   Close   ", " Volume ", " Company Code "," Share Issues "," Market Cap ");
+
+  $header = array(" No ", "   Close   ", "  Open  ", "   High  ","  Low  ","  Volume  ");
 
   fputcsv($file, $header);
 
@@ -43,13 +45,17 @@ if(isset($_POST["export"])){
   $result = $statement->fetchAll();
   $i=1;
 
+
   foreach($result as $row){
 
 $rowData=explode(",",$row["file_contents"]);  
+
 $code=str_replace("newd/","",$rowData[0]);
+
 $code=str_replace(".csv","",$code);
 
 $vol=strchr($rowData[10]," ");
+//14D,20180912,0.25,0.25,0.205,0.225,3768536,0
 $volume=str_replace("$vol"," ",$rowData[10]);
 $dateCr=date_create("$row[2]");
 $date=date_format($dateCr,"d/m/y");
@@ -60,7 +66,6 @@ $CompCode=$rowData[0];
    $data = array();
    
    $data[] = $i++;
-   $data[] = $date;
    $data[] = $priceClose;
    $data[] = $volume;
    $data[] = $code;
@@ -68,6 +73,8 @@ $CompCode=$rowData[0];
    $data[] = "N/A";
 
    fputcsv($file, $data);
+
+
   }
   fclose($file);
   exit;

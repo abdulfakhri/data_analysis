@@ -36,7 +36,7 @@ die("Unable to Connect database: " . $conn->connect_error);
                           </tr>  
                           <?php   
                           while($rows = mysqli_fetch_array($results))  {  
-                            foreach ($rows as $row) { 
+                            
                           ?>  
                           <tr>  
                                <td><?php echo $row['id']; ?></td>  
@@ -45,7 +45,7 @@ die("Unable to Connect database: " . $conn->connect_error);
                                <td><?php echo $row['designation']; ?></td>  
                           </tr>  
                           <?php                           
-                          }  
+                          
                         }
                           ?>  
                      </table>  
