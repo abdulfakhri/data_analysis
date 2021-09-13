@@ -135,7 +135,7 @@ $result = $statement->fetchAll();
       $cr=1;
       foreach($result as $row){
 
- $rowData=explode(",",$row["file_contents"]);  
+ $rData=explode(",",$row["file_contents"]);  
 //14D,20180912,0.25,0.25,0.205,0.225,3768536,0
 //Date	Price	Open	High	Low	Vol.	Change %
 $crow= $row["filename"];
@@ -144,6 +144,15 @@ $crow= str_replace("garyData/","",$crow);
 $crow= str_replace(".csv","",$crow);
 $crow=trim($crow);
 
+
+
+  # code...
+
+echo "<th>".$crow."<br>";
+echo "<hr>";
+echo '<table>
+<tr>';
+foreach ($rData as $rowData) {
 $company_code=$rowData[0];
 $date=$rowData[1];
 $priceClose=$rowData[2];
@@ -151,11 +160,6 @@ $open=$rowData[3];
 $high=$rowData[4];
 $low=$rowData[5];
 $volume=$rowData[6];
-
-echo "<th>".$crow."<br>";
-echo "<hr>";
-echo '<table>
-<tr>';
 //echo '<td>'.$row["file_contents"].'</td>';
 echo '<td>'.$company_code.'</td>';
 echo '<td>'.$date.'</td>';
@@ -168,7 +172,7 @@ echo '</tr></table>';
 echo "</th>";
 
 
-
+}
 
 
 
