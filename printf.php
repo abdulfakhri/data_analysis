@@ -150,7 +150,18 @@ $low=$rowData[5];
 $volume=$rowData[6];
 
 echo "<th>".$crow;
-echo '<table><tr>';
+echo '<table>
+    <thead>
+      <tr>
+       <th>No.</th>
+       <th>Close</th>
+       <th>Open</th>
+       <th>High</th>
+       <th>Low</th>
+       <th>Volume</th>
+      </tr>
+     </thead>
+<tr>';
 echo '<td>'.$row["file_contents"].'</td>';
 echo '</tr></table>';
 echo "</th>";
