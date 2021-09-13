@@ -152,7 +152,8 @@ $high=$rowData[4];
 $low=$rowData[5];
 $volume=$rowData[6];
 
-echo "<th>".$crow;
+echo "<th>".$crow."<br>";
+echo "<hr>";
 echo '<table>
 <tr>';
 echo '<td>'.$row["file_contents"].'</td>';
