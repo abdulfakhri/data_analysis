@@ -157,7 +157,12 @@ $high=$rowData[4];
 $low=$rowData[5];
 $volume=$rowData[6];
 
-echo "<th>".$crow."|"."</th>";
+echo "<th>".$crow;
+
+
+echo "</th>";
+
+
 
 
 
