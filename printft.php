@@ -157,7 +157,7 @@ echo '<thead>
        <th>Low</th>
        <th>Volume</th>
       </tr>
-     </thead>'
+     </thead>';
 echo "<tr>";
 echo "<td>".$cr++."</td>";
 echo "<td>".$priceClose."</td>";
