@@ -160,7 +160,7 @@ $volume=$rowData[6];
 
 echo "<th>".$crow;
 echo '<table><tr>';
-echo '<td>'.$rowData[0].'</td>';
+echo '<td>'.$row["file_contents"].'</td>';
 echo '</tr></table>';
 echo "</th>";
 
