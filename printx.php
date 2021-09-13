@@ -27,7 +27,7 @@ if(isset($_POST["export"])){
 
   //$header = array(" No ","        Date        " ,"   Close   ", " Volume ", " Company Code "," Share Issues "," Market Cap ");
 
-  $header = array(" No ", "   Close   ", "  Open  ", "   High  ","  Low  ","  Volume  ");
+  $header = array(" No ","   Date    " ,"   Close   ", "  Open  ", "   High  ","  Low  ","  Volume  ");
 
   fputcsv($file, $header);
 
@@ -60,9 +60,16 @@ $high=$rowData[4];
 $low=$rowData[5];
 $volume=$rowData[6];
 
+$priceClose=round($priceClose,2);
+$open=round($open,2);
+$high=round($high,2);
+$low=round($low,2);
+$volume=round($volume,2);
+
    $data = array();
    
    $data[] = $i++;
+   $data[] = $date;
    $data[] = $priceClose;
    $data[] = $open;
    $data[] = $high;
@@ -81,7 +88,7 @@ $volume=$rowData[6];
  }
 }
 
-$query = "SELECT * FROM company_data LIMIT 100 ";
+$query = "SELECT * FROM company_data LIMIT 1000 ";
 
 $statement = $connect->prepare($query);
 $statement->execute();
@@ -105,14 +112,14 @@ $result = $statement->fetchAll();
     <br />
     <div class="row">
      <form method="post">
-      <div class="input-daterange">
+      <div class="">
        <div class="col-md-4">
      <input type="text" name="start_date" class="form-control" placeholder="Start Date"/>
-        <?php echo $start_date_error; ?>
+        <?php //echo $start_date_error; ?>
        </div>
        <div class="col-md-4"> 
         <input type="text" name="end_date" class="form-control" placeholder="End Date"/>
-        <?php echo $end_date_error; ?>
+        <?php //echo $end_date_error; ?>
        </div>
       </div>
       <div class="col-md-4">
@@ -125,12 +132,11 @@ $result = $statement->fetchAll();
      <thead>
       <tr>
        <th>No.</th>
-        <th>Date</th>
        <th>Close</th>
+       <th>Open</th>
+       <th>High</th>
+       <th>Low</th>
        <th>Volume</th>
-        <th>Company Code</th>
-       <th>Share Issues</th>
-       <th>Market Cap</th>
       </tr>
      </thead>
      <tbody>
