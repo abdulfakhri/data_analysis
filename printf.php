@@ -88,7 +88,7 @@ $volume=round($volume,2);
  }
 }
 
-$query = "SELECT * FROM alldata LIMIT 10 ";
+$query = "SELECT * FROM alldata ORDER BY ID ASC LIMIT 10 ";
 
 $statement = $connect->prepare($query);
 $statement->execute();
