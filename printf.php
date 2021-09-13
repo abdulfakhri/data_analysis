@@ -148,6 +148,7 @@ $result = $statement->fetchAll();
 //14D,20180912,0.25,0.25,0.205,0.225,3768536,0
 //Date	Price	Open	High	Low	Vol.	Change %
 $crow= $row["filename"];
+$crow= $row["filename"];
 
 $company_code=$rowData[0];
 $date=$rowData[1];
@@ -158,8 +159,9 @@ $low=$rowData[5];
 $volume=$rowData[6];
 
 echo "<th>".$crow;
-
-
+echo '<table><tr>';
+echo '<td>'.$rowData[0].'</td>';
+echo '</tr></table>';
 echo "</th>";
 
 
