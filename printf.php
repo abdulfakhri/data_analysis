@@ -156,7 +156,14 @@ echo "<th>".$crow."<br>";
 echo "<hr>";
 echo '<table>
 <tr>';
-echo '<td>'.$row["file_contents"].'</td>';
+//echo '<td>'.$row["file_contents"].'</td>';
+echo '<td>'.$company_code.'</td>';
+echo '<td>'.$date.'</td>';
+echo '<td>'.$priceClose.'</td>';
+echo '<td>'.$open.'</td>';
+echo '<td>'.$high.'</td>';
+echo '<td>'.$low.'</td>';
+echo '<td>'.$volume.'</td>';
 echo '</tr></table>';
 echo "</th>";
 
