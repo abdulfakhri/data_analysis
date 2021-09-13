@@ -139,7 +139,8 @@ $result = $statement->fetchAll();
 //14D,20180912,0.25,0.25,0.205,0.225,3768536,0
 //Date	Price	Open	High	Low	Vol.	Change %
 
-$company_code=$rowData[0];
+//$company_code=$rowData[0];
+$company_code=$row["filename"];
 $date=$rowData[1];
 $priceClose=$rowData[2];
 $open=$rowData[3];
