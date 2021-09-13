@@ -53,7 +53,7 @@ $rowData=explode(",",$row["file_contents"]);
 //Date	Price	Open	High	Low	Vol.	Change %
 
 $company_code=$rowData[0];
-$date=$rowData[1];
+$date=$row["hdate"];
 $priceClose=$rowData[2];
 $open=$rowData[3];
 $high=$rowData[4];
