@@ -129,16 +129,7 @@ $result = $statement->fetchAll();
     </div>
     <br />
     <table class="table table-bordered table-striped">
-     <thead>
-      <tr>
-       <th>No.</th>
-       <th>Close</th>
-       <th>Open</th>
-       <th>High</th>
-       <th>Low</th>
-       <th>Volume</th>
-      </tr>
-     </thead>
+     
      <tbody>
       <?php
       $cr=1;
